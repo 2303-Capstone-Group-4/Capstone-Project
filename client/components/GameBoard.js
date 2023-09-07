@@ -18,7 +18,7 @@ const GameBoard = () => {
       <Box sx={{ flexGrow: 1}}>
       <Grid container spacing={1} columns={10} align="center">
         {Array.from(Array(60)).map((_, index) => (
-          <Grid xs={1} key={index}>
+          <Grid xs={1} key={index} sx={{ border: 1}}>
             <p>Space {index+1}</p>
           </Grid>
         ))}

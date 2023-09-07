@@ -11549,7 +11549,10 @@ const GameBoard = () => {
     align: "center"
   }, Array.from(Array(60)).map((_, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_2__["default"], {
     xs: 1,
-    key: index
+    key: index,
+    sx: {
+      border: 1
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Space ", index + 1))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GameBoard);
