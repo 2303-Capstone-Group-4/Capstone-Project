@@ -1,19 +1,23 @@
 import React, { Component, Fragment } from 'react';
-import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { withRouter, Route, Routes, Redirect } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
+import GamePage from './components/GamePage';
 
-const Routes = () => {
+const Router = () => {
   return (
     <div>
-      <Switch>
+      <Routes>
         <Route
-          path="/home"
-          component={LandingPage}
+          path="home"
+          element={<LandingPage />}
         />
-        <Redirect to="/home" />
-      </Switch>
+        <Route
+          path="game"
+          element={<GamePage />}
+        />
+      </Routes>
     </div>
   );
 };
 
-export default Routes;
+export default Router;

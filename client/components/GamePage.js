@@ -2,10 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const LandingPage = () => {
+const GamePage = () => {
   let navigate = useNavigate();
   const changeRoute = () => {
-    let path = '/game';
+    let path = '/home';
     navigate(path);
   };
 
@@ -17,10 +17,10 @@ const LandingPage = () => {
         id="start-button"
         onClick={changeRoute}
       >
-        Click to Start!
+        Return Home!
       </motion.button>
     </div>
   );
 };
 
-export default LandingPage;
+export default GamePage;
