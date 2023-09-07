@@ -3,8 +3,14 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 const LandingPage = () => {
   return (
-    <div>
-      <h3>Welcome, newUser</h3>
+    <div id="home-page">
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        id="start-button"
+      >
+        Click to Start!
+      </motion.button>
     </div>
   );
 };

@@ -1,5 +1,7 @@
 body {
   font-family: sans-serif;
+  height: 100%;
+  margin: 0;
 }
 
 a {
@@ -18,4 +20,24 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+#start-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  height: 40px;
+  border-radius: 15px;
+  background: #16a3c9;
+  border: none;
+  position: relative;
+  top: 50px;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+#home-page {
+  background-image: linear-gradient(to bottom right, #30f2a8, #faf9e1);
+  height: 100vh;
 }
