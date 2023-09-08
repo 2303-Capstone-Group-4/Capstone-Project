@@ -78,3 +78,7 @@ form div {
   margin: 15px;
   border-radius: 15px;
 }
+
+.true-selected {
+  box-shadow: 10px 10px pink;
+}

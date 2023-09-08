@@ -4,16 +4,30 @@ import { motion } from 'framer-motion';
 
 const LandingPage = () => {
   const [language, setLanguage] = useState('');
+  const initialCharState = {
+    char1: false,
+    char2: false,
+    char3: false,
+    char4: false,
+  };
+  const [selectedChar, setSelectedChar] = useState(initialCharState);
 
   let navigate = useNavigate();
   const changeRoute = () => {
-    let path = '/game';
+    let path = '/GameBoard';
     navigate(path);
   };
 
-  let char1 = false;
-  let char2 = false;
-  let char3 = false;
+  const selectChar = (inputChar) => {
+    let newState = {
+      char1: false,
+      char2: false,
+      char3: false,
+      char4: false,
+    };
+    newState[inputChar] = true;
+    setSelectedChar(newState);
+  };
 
   return (
     <div id="home-page">
@@ -26,10 +40,34 @@ const LandingPage = () => {
       <div id="character-selector">
         <h2 id="character-label">Select Character Here:</h2>
         <div id="char-images">
-          <img src="20230907_180304.jpg" />
-          <img src="20230907_180322.jpg" />
-          <img src="20230907_180337.jpg" />
-          <img src="20230907_180348.jpg" />
+          <motion.img
+            src="20230907_180304.jpg"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={selectedChar.char1.toString() + '-selected'}
+            onClick={() => selectChar('char1')}
+          />
+          <motion.img
+            src="20230907_180322.jpg"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={selectedChar.char2.toString() + '-selected'}
+            onClick={() => selectChar('char2')}
+          />
+          <motion.img
+            src="20230907_180337.jpg"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={selectedChar.char3.toString() + '-selected'}
+            onClick={() => selectChar('char3')}
+          />
+          <motion.img
+            src="20230907_180348.jpg"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={selectedChar.char4.toString() + '-selected'}
+            onClick={() => selectChar('char4')}
+          />
         </div>
       </div>
       <motion.button

@@ -4102,7 +4102,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Navbar */ "./client/components/Navbar.js");
-/* harmony import */ var _components_GamePage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/GamePage */ "./client/components/GamePage.js");
+/* harmony import */ var _components_GameBoard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/GameBoard */ "./client/components/GameBoard.js");
 /* harmony import */ var _components_LandingPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/LandingPage */ "./client/components/LandingPage.js");
 /* harmony import */ var _components_WrongPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/WrongPage */ "./client/components/WrongPage.js");
 
@@ -4117,8 +4117,8 @@ const App = () => {
     path: "/home",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_LandingPage__WEBPACK_IMPORTED_MODULE_3__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
-    path: "/game",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_GamePage__WEBPACK_IMPORTED_MODULE_2__["default"], null)
+    path: "/GameBoard",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_GameBoard__WEBPACK_IMPORTED_MODULE_2__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
     path: "*",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_WrongPage__WEBPACK_IMPORTED_MODULE_4__["default"], null)
@@ -4128,10 +4128,10 @@ const App = () => {
 
 /***/ }),
 
-/***/ "./client/components/GamePage.js":
-/*!***************************************!*\
-  !*** ./client/components/GamePage.js ***!
-  \***************************************/
+/***/ "./client/components/GameBoard.js":
+/*!****************************************!*\
+  !*** ./client/components/GameBoard.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4140,31 +4140,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
 
 
-
-const GamePage = () => {
-  let navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
-  const changeRoute = () => {
-    let path = '/home';
-    navigate(path);
-  };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    id: "home-page"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(framer_motion__WEBPACK_IMPORTED_MODULE_2__.motion.button, {
-    whileHover: {
-      scale: 1.1
-    },
-    whileTap: {
-      scale: 0.9
-    },
-    id: "start-button",
-    onClick: changeRoute
-  }, "Return Home!"));
+const GameBoard = () => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "This is the GameBoard"));
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GamePage);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GameBoard);
 
 /***/ }),
 
@@ -4187,14 +4168,28 @@ __webpack_require__.r(__webpack_exports__);
 
 const LandingPage = () => {
   const [language, setLanguage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const initialCharState = {
+    char1: false,
+    char2: false,
+    char3: false,
+    char4: false
+  };
+  const [selectedChar, setSelectedChar] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initialCharState);
   let navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
   const changeRoute = () => {
-    let path = '/game';
+    let path = '/GameBoard';
     navigate(path);
   };
-  let char1 = false;
-  let char2 = false;
-  let char3 = false;
+  const selectChar = inputChar => {
+    let newState = {
+      char1: false,
+      char2: false,
+      char3: false,
+      char4: false
+    };
+    newState[inputChar] = true;
+    setSelectedChar(newState);
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: "home-page"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
@@ -4209,14 +4204,46 @@ const LandingPage = () => {
     id: "character-label"
   }, "Select Character Here:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: "char-images"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: "20230907_180304.jpg"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: "20230907_180322.jpg"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: "20230907_180337.jpg"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: "20230907_180348.jpg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(framer_motion__WEBPACK_IMPORTED_MODULE_2__.motion.img, {
+    src: "20230907_180304.jpg",
+    whileHover: {
+      scale: 1.1
+    },
+    whileTap: {
+      scale: 0.9
+    },
+    className: selectedChar.char1.toString() + '-selected',
+    onClick: () => selectChar('char1')
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(framer_motion__WEBPACK_IMPORTED_MODULE_2__.motion.img, {
+    src: "20230907_180322.jpg",
+    whileHover: {
+      scale: 1.1
+    },
+    whileTap: {
+      scale: 0.9
+    },
+    className: selectedChar.char2.toString() + '-selected',
+    onClick: () => selectChar('char2')
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(framer_motion__WEBPACK_IMPORTED_MODULE_2__.motion.img, {
+    src: "20230907_180337.jpg",
+    whileHover: {
+      scale: 1.1
+    },
+    whileTap: {
+      scale: 0.9
+    },
+    className: selectedChar.char3.toString() + '-selected',
+    onClick: () => selectChar('char3')
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(framer_motion__WEBPACK_IMPORTED_MODULE_2__.motion.img, {
+    src: "20230907_180348.jpg",
+    whileHover: {
+      scale: 1.1
+    },
+    whileTap: {
+      scale: 0.9
+    },
+    className: selectedChar.char4.toString() + '-selected',
+    onClick: () => selectChar('char4')
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(framer_motion__WEBPACK_IMPORTED_MODULE_2__.motion.button, {
     whileHover: {
       scale: 1.1
