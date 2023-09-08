@@ -11,8 +11,6 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      {/* something wrong with the Routes section */}
-
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/GameBoard" element={<GameBoard />} />

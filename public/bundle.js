@@ -11532,9 +11532,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+let avatarPosition = 0;
+const keys = {
+  left: 37,
+  right: 39
+};
+function handleKey(e) {
+  switch (e.keyCode) {
+    case keys.left:
+      avatarPosition--;
+      break;
+    case keys.right:
+      avatarPosition++;
+      break;
+  }
+}
+window.addEventListener("keydown", handleKey);
+
+//maybe have the avatar start in the first position, then adjust the index by 1 in the appropriate direction
+
 const GameBoard = () => {
-  {/* Thinking a 10 x grid, block out the square we aren't using */}
-  {/* for (let i = 0; i < 60; i++) {} */}
+  window.addEventListener("keydown", handleKey);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "This is the GameBoard"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_1__["default"], {
     sx: {
       flexGrow: 1
@@ -11548,13 +11566,13 @@ const GameBoard = () => {
     spacing: 1,
     columns: 10,
     align: "center"
-  }, Array.from(Array(60)).map((_, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, Array.from(Array(10)).map((_, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_2__["default"], {
     xs: 1,
     key: index,
     sx: {
       border: 1
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Space ", index + 1))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Space ", avatarPosition))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GameBoard);
 

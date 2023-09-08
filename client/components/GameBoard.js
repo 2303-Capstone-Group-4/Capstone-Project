@@ -3,10 +3,31 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
-const GameBoard = () => {
-  {/* Thinking a 10 x grid, block out the square we aren't using */}
+let avatarPosition = 0;
 
-  {/* for (let i = 0; i < 60; i++) {} */}
+  const keys = {
+    left: 37,
+    right: 39,
+  };
+
+  function handleKey(e) {
+    switch (e.keyCode) {
+      case keys.left:
+        avatarPosition--;
+        break;
+      case keys.right:
+        avatarPosition++;
+        break;
+    }
+  }
+
+  window.addEventListener("keydown", handleKey);
+
+//maybe have the avatar start in the first position, then adjust the index by 1 in the appropriate direction
+
+const GameBoard = () => {
+
+  window.addEventListener("keydown", handleKey);
 
   return (
     <div>
@@ -19,9 +40,9 @@ const GameBoard = () => {
 
       <Box sx={{ flexGrow: 1}}>
         <Grid container spacing={1} columns={10} align="center">
-          {Array.from(Array(60)).map((_, index) => (
+          {Array.from(Array(10)).map((_, index) => (
             <Grid xs={1} key={index} sx={{ border: 1}}>
-              <p>Space {index + 1}</p>
+              <p>Space {avatarPosition}</p>
             </Grid>
           ))}
         </Grid>
