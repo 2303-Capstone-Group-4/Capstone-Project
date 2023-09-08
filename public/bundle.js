@@ -11534,11 +11534,12 @@ __webpack_require__.r(__webpack_exports__);
 
 const GameBoard = () => {
   {/* Thinking a 10 x grid, block out the square we aren't using */}
-  {/* for (let i = 0; i < 60; i++) {
-          
-    } 
-   */}
+  {/* for (let i = 0; i < 60; i++) {} */}
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "This is the GameBoard"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    sx: {
+      flexGrow: 1
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "User Score: ", 0), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "User Health: ", 3)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_1__["default"], {
     sx: {
       flexGrow: 1
     }
