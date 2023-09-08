@@ -3,7 +3,7 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
-let avatarPosition = 0;
+  let avatarPosition = 0;
 
   const keys = {
     left: 37,
@@ -13,10 +13,12 @@ let avatarPosition = 0;
   function handleKey(e) {
     switch (e.keyCode) {
       case keys.left:
-        avatarPosition--;
+        avatarPosition-=1;
+        console.log(avatarPosition);
         break;
       case keys.right:
-        avatarPosition++;
+        avatarPosition+=1;
+        console.log(avatarPosition);
         break;
     }
   }
@@ -25,10 +27,15 @@ let avatarPosition = 0;
 
 //maybe have the avatar start in the first position, then adjust the index by 1 in the appropriate direction
 
+//to prevent errors, will want to do something so the player character can't go left from the starting position, and when they hit the last space / last quiz battle, the game ends
+
+//if grid index is = avatarPosition, have avatar be what fills in the grid index. otherwise keep it empty? 
+
+//if (avatarPosition === index) {<p>Avatar could be here!</p>}
+              
+
 const GameBoard = () => {
-
-  window.addEventListener("keydown", handleKey);
-
+  
   return (
     <div>
       <h3>This is the GameBoard</h3>
@@ -42,6 +49,7 @@ const GameBoard = () => {
         <Grid container spacing={1} columns={10} align="center">
           {Array.from(Array(10)).map((_, index) => (
             <Grid xs={1} key={index} sx={{ border: 1}}>
+              
               <p>Space {avatarPosition}</p>
             </Grid>
           ))}
