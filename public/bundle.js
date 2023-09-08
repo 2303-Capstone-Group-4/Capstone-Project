@@ -4168,18 +4168,39 @@ __webpack_require__.r(__webpack_exports__);
 
 const LandingPage = () => {
   const [language, setLanguage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const initialCharState = {
+  const [selectedChar, setSelectedChar] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     char1: false,
     char2: false,
     char3: false,
     char4: false
-  };
-  const [selectedChar, setSelectedChar] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initialCharState);
+  });
   let navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
   const changeRoute = () => {
-    let path = '/GameBoard';
-    navigate(path);
+    if (!selectedChar.char1 && !selectedChar.char2 && !selectedChar.char3 && !selectedChar.char4 && language === '') {
+      alert('Make sure to enter a language and select a character!');
+    } else if (language === '') {
+      alert('Make sure to enter a language!');
+    } else if (!selectedChar.char1 && !selectedChar.char2 && !selectedChar.char3 && !selectedChar.char4) {
+      alert('Make sure to select a character!');
+    } else {
+      let path = '/GameBoard';
+      navigate(path, {
+        state: {
+          langauge: language
+        }
+      });
+      //    Use the useNavigate hook:
+
+      //    const navigate = useNavigate();
+      //    navigate('/other-page', { state: { id: 7, color: 'green' } });
+
+      //    Then, you can access the state data in '/other-page' via the useLocation hook:
+
+      //    const {state} = useLocation();
+      //    const { id, color } = state; // Read values passed on state
+    }
   };
+
   const selectChar = inputChar => {
     let newState = {
       char1: false,

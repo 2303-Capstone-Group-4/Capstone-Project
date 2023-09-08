@@ -4,18 +4,45 @@ import { motion } from 'framer-motion';
 
 const LandingPage = () => {
   const [language, setLanguage] = useState('');
-  const initialCharState = {
+  const [selectedChar, setSelectedChar] = useState({
     char1: false,
     char2: false,
     char3: false,
     char4: false,
-  };
-  const [selectedChar, setSelectedChar] = useState(initialCharState);
+  });
 
   let navigate = useNavigate();
   const changeRoute = () => {
-    let path = '/GameBoard';
-    navigate(path);
+    if (
+      !selectedChar.char1 &&
+      !selectedChar.char2 &&
+      !selectedChar.char3 &&
+      !selectedChar.char4 &&
+      language === ''
+    ) {
+      alert('Make sure to enter a language and select a character!');
+    } else if (language === '') {
+      alert('Make sure to enter a language!');
+    } else if (
+      !selectedChar.char1 &&
+      !selectedChar.char2 &&
+      !selectedChar.char3 &&
+      !selectedChar.char4
+    ) {
+      alert('Make sure to select a character!');
+    } else {
+      let path = '/GameBoard';
+      navigate(path, { state: { langauge: language } });
+      //    Use the useNavigate hook:
+
+      //    const navigate = useNavigate();
+      //    navigate('/other-page', { state: { id: 7, color: 'green' } });
+
+      //    Then, you can access the state data in '/other-page' via the useLocation hook:
+
+      //    const {state} = useLocation();
+      //    const { id, color } = state; // Read values passed on state
+    }
   };
 
   const selectChar = (inputChar) => {

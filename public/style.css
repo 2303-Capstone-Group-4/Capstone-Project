@@ -29,7 +29,7 @@ form div {
   width: 40%;
   height: 60px;
   border-radius: 15px;
-  background: #16a3c9;
+  background: #dd6dff;
   border: none;
   position: relative;
   top: 150px;
@@ -54,6 +54,7 @@ form div {
   top: 75px;
   font-weight: bold;
   font-size: large;
+  text-indent: 5px;
 }
 
 #input-label {
