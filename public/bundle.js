@@ -11540,10 +11540,12 @@ const keys = {
 function handleKey(e) {
   switch (e.keyCode) {
     case keys.left:
-      avatarPosition--;
+      avatarPosition -= 1;
+      console.log(avatarPosition);
       break;
     case keys.right:
-      avatarPosition++;
+      avatarPosition += 1;
+      console.log(avatarPosition);
       break;
   }
 }
@@ -11551,8 +11553,13 @@ window.addEventListener("keydown", handleKey);
 
 //maybe have the avatar start in the first position, then adjust the index by 1 in the appropriate direction
 
+//to prevent errors, will want to do something so the player character can't go left from the starting position, and when they hit the last space / last quiz battle, the game ends
+
+//if grid index is = avatarPosition, have avatar be what fills in the grid index. otherwise keep it empty? 
+
+//if (avatarPosition === index) {<p>Avatar could be here!</p>}
+
 const GameBoard = () => {
-  window.addEventListener("keydown", handleKey);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "This is the GameBoard"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_1__["default"], {
     sx: {
       flexGrow: 1
