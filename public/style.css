@@ -1,5 +1,7 @@
 body {
   font-family: sans-serif;
+  height: 100%;
+  margin: 0;
 }
 
 a {
@@ -18,4 +20,66 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+#start-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  height: 60px;
+  border-radius: 15px;
+  background: #dd6dff;
+  border: none;
+  position: relative;
+  top: 150px;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+#home-page {
+  background-image: linear-gradient(to bottom right, #30f2a8, #faf9e1);
+  height: 100vh;
+}
+
+#language-input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 35px;
+  border-radius: 15px;
+  border: none;
+  position: relative;
+  top: 75px;
+  font-weight: bold;
+  font-size: large;
+  text-indent: 5px;
+}
+
+#input-label {
+  display: block;
+  text-align: center;
+  position: relative;
+  top: 75px;
+}
+
+#character-selector {
+  position: relative;
+  top: 100px;
+  text-align: center;
+}
+
+#char-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#char-images img {
+  margin: 15px;
+  border-radius: 15px;
+}
+
+.true-selected {
+  box-shadow: 10px 10px pink;
 }

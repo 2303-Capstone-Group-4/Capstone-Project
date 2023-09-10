@@ -1,24 +1,23 @@
 import React, { Component, Fragment } from 'react';
-import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { withRouter, Route, Routes, Redirect } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
+import GamePage from './components/GamePage';
 
-/**
- * COMPONENT
- */
-class Routes extends Component {
-  render() {
-    return (
-      <div>
-        <Switch>
-          <Route
-            path="/home"
-            component={LandingPage}
-          />
-          <Redirect to="/home" />
-        </Switch>
-      </div>
-    );
-  }
-}
+const Router = () => {
+  return (
+    <div>
+      <Routes>
+        <Route
+          path="home"
+          element={<LandingPage />}
+        />
+        <Route
+          path="game"
+          element={<GamePage />}
+        />
+      </Routes>
+    </div>
+  );
+};
 
-export default Routes;
+export default Router;
