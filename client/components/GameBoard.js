@@ -2,6 +2,9 @@ import React from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 
   let avatarPosition = 0;
 
@@ -46,14 +49,40 @@ const GameBoard = () => {
       </Box>
 
       <Box sx={{ flexGrow: 1}}>
-        <Grid container spacing={1} columns={10} align="center">
-          {Array.from(Array(10)).map((_, index) => (
-            <Grid xs={1} key={index} sx={{ border: 1}}>
-              
-              <p>Space {avatarPosition}</p>
-            </Grid>
-          ))}
-        </Grid>
+        <div style={{ display: 'flex', flexDirection: 'row'}}>
+          <List>
+            <ListItem tabIndex={1}>
+              <ListItemText primary="1" />
+            </ListItem>
+            <ListItem tabIndex={2}>
+              <ListItemText primary="2" />
+            </ListItem>
+            <ListItem tabIndex={3}>
+              <ListItemText primary="3" />
+            </ListItem>
+            <ListItem tabIndex={4}>
+              <ListItemText primary="4" />
+            </ListItem>
+            <ListItem tabIndex={5}>
+              <ListItemText primary="5" />
+            </ListItem>
+            <ListItem tabIndex={6}>
+              <ListItemText primary="6" />
+            </ListItem>
+            <ListItem tabIndex={7}>
+              <ListItemText primary="7" />
+            </ListItem>
+            <ListItem tabIndex={8}>
+              <ListItemText primary="8" />
+            </ListItem>
+            <ListItem tabIndex={9}>
+              <ListItemText primary="9" />
+            </ListItem>
+            <ListItem tabIndex={10}>
+              <ListItemText primary="10" />
+            </ListItem>
+          </List>  
+        </div>           
       </Box>
     </div>
   );
