@@ -37,7 +37,7 @@ router.get("/", async (req, res, next) => {
           }
           
           Provide the following:
-          - a list of 5 basic phrases asking for information in English for someone looking to learn introductory conversational Spanish
+          - a list of 5 basic phrases asking for information in English for someone looking to learn introductory conversational ${language}
           - a quiz with 3 questions based on the list`,
         },
       ],

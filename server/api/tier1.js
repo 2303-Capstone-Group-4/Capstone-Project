@@ -37,7 +37,7 @@ router.get("/", async (req, res, next) => {
           }
           
           Provide the following:
-          - a list of 10 greetings and basic phrases in English for someone looking to learn introductory conversational Portuguese
+          - a list of 10 greetings and basic phrases in English for someone looking to learn introductory conversational ${language}
           - a quiz with 3 questions based on the list`,
         },
       ],

@@ -37,7 +37,7 @@ router.get("/", async (req, res, next) => {
           }
           
           Provide the following:
-          - a list of 20 basic objects and places in English for someone looking to learn introductory conversational Portuguese
+          - a list of 20 basic objects and places in English for someone looking to learn introductory conversational ${language}
           - a quiz with 3 questions based on the list`,
         },
       ],
