@@ -52,7 +52,9 @@ const LandingPage = () => {
       char3: false,
       char4: false,
     };
-    newState[inputChar] = true;
+    if (selectedChar[inputChar] != true) {
+      newState[inputChar] = true;
+    }
     setSelectedChar(newState);
   };
 
