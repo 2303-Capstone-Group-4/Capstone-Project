@@ -3,11 +3,10 @@ const router = require("express").Router();
 const axios = require("axios");
 const OpenAI = require("openai");
 module.exports = router;
-const api_key = "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";
 // This code is for v4 of the openai package: npmjs.com/package/openai
 
 const openai = new OpenAI({
-  apiKey: api_key,
+  apiKey: process.env.OPEN_API_KEY,
 });
 
 router.get("/", async (req, res, next) => {
