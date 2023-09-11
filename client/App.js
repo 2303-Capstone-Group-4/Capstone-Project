@@ -12,7 +12,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route
-          path="/home"
+          path="/"
           element={<LandingPage />}
         />
         <Route

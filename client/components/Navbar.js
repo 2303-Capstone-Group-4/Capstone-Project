@@ -5,7 +5,6 @@ const Navbar = () => (
     <nav>
       <div>
         <Link to="/">Home</Link>
-        <Link to="/gameBoard">GameBoard</Link>
       </div>
     </nav>
 );
