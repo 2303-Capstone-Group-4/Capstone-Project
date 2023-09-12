@@ -14039,51 +14039,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-//let avatarPosition = 0;
-
-// const keys = {
-//   left: 37,
-//   right: 39,
-// };
-
-// function handleKey(e) {
-//   switch (e.keyCode) {
-//     case keys.left:
-//       avatarPosition-=1;
-//       console.log(avatarPosition);
-//       break;
-//     case keys.right:
-//       avatarPosition+=1;
-//       console.log(avatarPosition);
-//       break;
-//   }
-// }
-
-// function handleClick(space) {
-//   console.log(space + " button clicked");
-// }
-
-//window.addEventListener("keydown", handleKey);
-
-//maybe have the avatar start in the first position, then adjust the index by 1 in the appropriate direction
-
-//to prevent errors, will want to do something so the player character can't go left from the starting position, and when they hit the last space / last quiz battle, the game ends
-
-//if grid index is = avatarPosition, have avatar be what fills in the grid index. otherwise keep it empty? 
-
-//if (avatarPosition === index) {<p>Avatar could be here!</p>}
-
-const GameBoard = () => {
+const GameBoard = props => {
+  const character = props.selectedChar;
   const spaces = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-  // function handleClick(e) {
-  //   console.log(space + " button clicked");
-  // }
-
   const gameItems = spaces.map(space => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_TableCell__WEBPACK_IMPORTED_MODULE_1__["default"], {
     key: space
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: "../images/20230907_180304.jpg",
+    alt: ""
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
     variant: "outlined"
   }, space)));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "This is the GameBoard"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -14250,9 +14214,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const Navbar = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
   to: "/"
-}, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-  to: "/gameBoard"
-}, "GameBoard")));
+}, "Home")));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Navbar);
 
 /***/ }),
