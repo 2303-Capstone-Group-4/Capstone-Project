@@ -6,6 +6,7 @@ body {
 
 h1 {
   margin: 0;
+  font-size: xx-large;
 }
 
 a {
@@ -28,7 +29,7 @@ nav a {
   border-radius: 30px;
   border-style: solid;
   border-color: black;
-  border-width: 2px;
+  border-width: 3px;
 }
 
 form div {
@@ -55,7 +56,8 @@ form div {
 
 #home-page {
   padding-top: 50px;
-  background-image: linear-gradient(to bottom right, #30f2a8, #faf9e1);
+  /* background-image: linear-gradient(to bottom right, #30f2a8, #faf9e1); */
+  background-image: linear-gradient(to bottom, #fff9d6, #faf9e1);
   height: 100vh;
 }
 
@@ -66,7 +68,9 @@ form div {
   width: 200px;
   height: 35px;
   border-radius: 30px;
-  border: none;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
   position: relative;
   top: 75px;
   font-weight: bold;
@@ -95,10 +99,13 @@ form div {
 #char-images img {
   margin: 15px;
   border-radius: 15px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
 }
 
 .true-selected {
-  box-shadow: 10px 10px 5px pink;
+  box-shadow: 10px 10px 5px grey;
 }
 
 #navbar {
