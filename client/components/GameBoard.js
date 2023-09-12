@@ -26,7 +26,7 @@ const GameBoard = (props) => {
   ));
 
   return (
-    <div>
+    <div id="gameboard">
       <h3>This is the GameBoard</h3>
 
       <Box sx={{ flexGrow: 1 }}>
