@@ -4,8 +4,14 @@ body {
   margin: 0;
 }
 
+h1 {
+  margin: 0;
+}
+
 a {
   text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
 label {
@@ -14,7 +20,7 @@ label {
 
 nav a {
   display: inline-block;
-  margin: 1em;
+  margin: 0.6em;
 }
 
 form div {
@@ -82,4 +88,15 @@ form div {
 
 .true-selected {
   box-shadow: 10px 10px pink;
+}
+
+#navbar {
+  background-image: linear-gradient(to bottom, #7dfc8e, #00d885);
+  padding-top: 15px;
+}
+#nav-link {
+  text-align: center;
+  display: block;
+  margin: auto;
+  background: blue;
 }

@@ -9,24 +9,27 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-            
+
 const GameBoard = (props) => {
   const character = props.selectedChar;
 
   const spaces = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  const gameItems = spaces.map((space) =>
+  const gameItems = spaces.map((space) => (
     <TableCell key={space}>
-      <img src={"../images/20230907_180304.jpg"} alt={""} />
+      <img
+        src={'./20230907_180304.jpg'}
+        alt={''}
+      />
       <Button variant="outlined">{space}</Button>
     </TableCell>
-  )
-  
+  ));
+
   return (
     <div>
       <h3>This is the GameBoard</h3>
 
-      <Box sx={{ flexGrow: 1}}>
+      <Box sx={{ flexGrow: 1 }}>
         <p>User Score: {0}</p>
         <p>User Health: {3}</p>
       </Box>
@@ -34,9 +37,7 @@ const GameBoard = (props) => {
       <TableContainer component={Paper}>
         <Table>
           <TableBody>
-            <TableRow>
-              {gameItems}              
-            </TableRow>
+            <TableRow>{gameItems}</TableRow>
           </TableBody>
         </Table>
       </TableContainer>
