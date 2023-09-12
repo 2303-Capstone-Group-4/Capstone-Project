@@ -14122,7 +14122,9 @@ const LandingPage = () => {
       char3: false,
       char4: false
     };
-    newState[inputChar] = true;
+    if (selectedChar[inputChar] != true) {
+      newState[inputChar] = true;
+    }
     setSelectedChar(newState);
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
