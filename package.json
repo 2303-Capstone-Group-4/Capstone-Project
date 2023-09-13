@@ -27,6 +27,7 @@
     "mui": "^0.0.1",
     "openai": "^4.5.0",
     "pg": "^8.11.3",
+    "reactjs-popup": "^2.0.6",
     "sequelize": "^6.32.1"
   },
   "devDependencies": {
