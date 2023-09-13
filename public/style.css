@@ -4,8 +4,15 @@ body {
   margin: 0;
 }
 
+h1 {
+  margin: 0;
+  font-size: xx-large;
+}
+
 a {
   text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
 label {
@@ -13,8 +20,16 @@ label {
 }
 
 nav a {
-  display: inline-block;
-  margin: 1em;
+  display: block;
+  text-align: center;
+  padding: 0.5em;
+  margin: 10px auto 5px;
+  width: 10%;
+  background: radial-gradient(#e492fd 30%, #fad6ff);
+  border-radius: 30px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
 }
 
 form div {
@@ -28,9 +43,11 @@ form div {
   margin-right: auto;
   width: 40%;
   height: 60px;
-  border-radius: 15px;
-  background: #e492fd;
-  border: none;
+  border-radius: 30px;
+  background: radial-gradient(#e492fd 30%, #fad6ff);
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
   position: relative;
   top: 150px;
   font-weight: bold;
@@ -38,7 +55,9 @@ form div {
 }
 
 #home-page {
-  background-image: linear-gradient(to bottom right, #30f2a8, #faf9e1);
+  padding-top: 50px;
+  /* background-image: linear-gradient(to bottom right, #30f2a8, #faf9e1); */
+  background-image: linear-gradient(to bottom, #fff9d6, #faf9e1);
   height: 100vh;
 }
 
@@ -48,13 +67,15 @@ form div {
   margin-right: auto;
   width: 200px;
   height: 35px;
-  border-radius: 15px;
-  border: none;
+  border-radius: 30px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
   position: relative;
   top: 75px;
   font-weight: bold;
   font-size: large;
-  text-indent: 5px;
+  text-indent: 10px;
 }
 
 #input-label {
@@ -78,8 +99,76 @@ form div {
 #char-images img {
   margin: 15px;
   border-radius: 15px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
 }
 
 .true-selected {
-  box-shadow: 10px 10px pink;
+  box-shadow: 10px 10px 5px grey;
+}
+
+#navbar {
+  background: radial-gradient(ellipse at top, #faf9e1, #00d885);
+  border: solid;
+  border-width: 0 3px 3px 3px;
+  border-color: black;
+  border-radius: 0 0 50px 50px;
+  position: fixed;
+  width: 80%;
+  top: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 5px 5px grey;
+}
+#gameboard {
+  padding-top: 100px;
+}
+
+.modal {
+  position: fixed;
+  top: 300px;
+  padding: 50px;
+  width: 30%;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  background: radial-gradient(ellipse at top, #faf9e1, #00d885);
+  border: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgb(34, 34, 34);
+}
+#modal-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: radial-gradient(#e492fd 30%, #fad6ff);
+  border-radius: 30px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  padding: 10px;
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 3px solid black;
+}
+
+.header {
+  font-size: larger;
+  font-weight: bold;
 }
