@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const axios = require('axios');
 const OpenAI = require('openai');
+require('dotenv').config();
 module.exports = router;
 // This code is for v4 of the openai package: npmjs.com/package/openai
 
