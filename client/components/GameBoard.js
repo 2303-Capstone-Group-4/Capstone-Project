@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
@@ -12,7 +13,10 @@ import Button from '@mui/material/Button';
 import QuizPopup from './QuizPopup';
 
 const GameBoard = (props) => {
-  const character = props.selectedChar;
+  const { state } = useLocation();
+  const { language, character } = state;
+  // console.log(language);
+  // console.log(character);
 
   const spaces = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 

@@ -32,16 +32,17 @@ const LandingPage = () => {
       alert('Make sure to select a character!');
     } else {
       let path = '/GameBoard';
-      navigate(path, { state: { langauge: language } });
-      //    Use the useNavigate hook:
-
-      //    const navigate = useNavigate();
-      //    navigate('/other-page', { state: { id: 7, color: 'green' } });
-
-      //    Then, you can access the state data in '/other-page' via the useLocation hook:
-
-      //    const {state} = useLocation();
-      //    const { id, color } = state; // Read values passed on state
+      let character = '';
+      if (selectedChar.char1 === true) {
+        character = 'char1';
+      } else if (selectedChar.char2 === true) {
+        character = 'char2';
+      } else if (selectedChar.char3 === true) {
+        character = 'char3';
+      } else {
+        character = 'char4';
+      }
+      navigate(path, { state: { language: language, character: character } });
     }
   };
 
