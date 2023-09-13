@@ -14884,7 +14884,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Navbar = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_1__["default"], {
+const Navbar = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  id: "navbar"
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_1__["default"], {
   sx: {
     flexGrow: 1
   }
@@ -14898,7 +14900,7 @@ const Navbar = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().c
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
   to: "/"
-}, "Home")))));
+}, "Home"))))));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Navbar);
 
 /***/ }),
