@@ -10,6 +10,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import QuizPopup from './QuizPopup';
 import UserInfo from './UserInfo';
+import Typography from '@mui/material/Typography';
 
 const GameBoard = (props) => {
   const { state } = useLocation();
@@ -17,32 +18,39 @@ const GameBoard = (props) => {
   // console.log(language);
   // console.log(character);
 
-  //State solution for where the character is located?
-
-  const [position, setPosition] = useState(0);
+  const [position, setPosition] = useState(1);
+  const [health, setHealth] = useState(0);
 
   const spaces = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+  //when game starts, 1st space is where the character is
+  //other spaces are empty
+  //
+
   const changePosition = (space) => {
     //onClick, change Character position to be on clicked Button
+      //setPosition(space);
+        //console.log(space);
+        //console.log(position);
     //remove Character from Previous Position
+
   };
 
   const gameItems = spaces.map((space) => (
-    <TableCell key={space}>
+    <TableCell key={space} onClick={() => console.log(space)}>
       <img
         src={'./20230907_180304.jpg'}
         alt={''}
       />
-      <Button variant="outlined" onClick={() => console.log(space)}>
+      <Typography sx={{ textAlign: 'center'}}>
         {space}
-      </Button>
+      </Typography>
     </TableCell>
   ));
 
   return (
     <div id="gameboard">
-      <UserInfo health={0}/>
+      <UserInfo health={health}/>
       <TableContainer component={Paper}>
         <Table>
           <TableBody>
