@@ -1,11 +1,12 @@
 import React from 'react';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const UserInfo = (props) => {
     const { health } = props;
     return (
         <Box sx={{ flexGrow: 1 }}>
-        <p>User Health: {health}</p>
+        <Typography variant="h6">User Health: {health}</Typography>
         </Box>
     )   
 }

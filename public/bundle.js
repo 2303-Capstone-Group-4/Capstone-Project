@@ -14703,14 +14703,20 @@ const GameBoard = props => {
 
   //State solution for where the character is located?
 
+  const [position, setPosition] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
   const spaces = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const changePosition = space => {
+    //onClick, change Character position to be on clicked Button
+    //remove Character from Previous Position
+  };
   const gameItems = spaces.map(space => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_TableCell__WEBPACK_IMPORTED_MODULE_4__["default"], {
     key: space
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     src: './20230907_180304.jpg',
     alt: ''
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    variant: "outlined"
+    variant: "outlined",
+    onClick: () => console.log(space)
   }, space)));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: "gameboard"
@@ -14957,6 +14963,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _mui_material_Box__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/material/Box */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material_Typography__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/Typography */ "./node_modules/@mui/material/Typography/Typography.js");
+
 
 
 const UserInfo = props => {
@@ -14967,7 +14975,9 @@ const UserInfo = props => {
     sx: {
       flexGrow: 1
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "User Health: ", health));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    variant: "h6"
+  }, "User Health: ", health));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserInfo);
 
