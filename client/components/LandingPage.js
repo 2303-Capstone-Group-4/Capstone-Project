@@ -71,28 +71,28 @@ const LandingPage = () => {
         <h2 id="character-label">Select Character Here:</h2>
         <div id="char-images">
           <motion.img
-            src="20230907_180304.jpg"
+            src={'./images/20230907_180304.jpg'}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             className={selectedChar.char1.toString() + '-selected'}
             onClick={() => selectChar('char1')}
           />
           <motion.img
-            src="20230907_180322.jpg"
+            src={'./images/20230907_180322.jpg'}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             className={selectedChar.char2.toString() + '-selected'}
             onClick={() => selectChar('char2')}
           />
           <motion.img
-            src="20230907_180337.jpg"
+            src={'./images/20230907_180337.jpg'}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             className={selectedChar.char3.toString() + '-selected'}
             onClick={() => selectChar('char3')}
           />
           <motion.img
-            src="20230907_180348.jpg"
+            src={'./images/20230907_180348.jpg'}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             className={selectedChar.char4.toString() + '-selected'}

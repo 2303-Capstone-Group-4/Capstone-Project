@@ -11,6 +11,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import QuizPopup from './QuizPopup';
+import MonsterBar from './MonsterBar';
 
 const GameBoard = (props) => {
   const { state } = useLocation();
@@ -23,7 +24,7 @@ const GameBoard = (props) => {
   const gameItems = spaces.map((space) => (
     <TableCell key={space}>
       <img
-        src={'./20230907_180304.jpg'}
+        src={'./images/20230907_180304.jpg'}
         alt={''}
       />
       <Button variant="outlined">{space}</Button>
@@ -48,6 +49,7 @@ const GameBoard = (props) => {
       </TableContainer>
       <hr />
       <QuizPopup />
+      <MonsterBar />
     </div>
   );
 };

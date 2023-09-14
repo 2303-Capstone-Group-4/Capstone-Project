@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import { motion } from 'framer-motion';
+// import AppBar from '@mui/material/AppBar';
+// import Box from '@mui/material/Box';
+// import Toolbar from '@mui/material/Toolbar';
+// import Typography from '@mui/material/Typography';
 
 const Navbar = () => (
   // <div id="navbar">
@@ -24,7 +25,12 @@ const Navbar = () => (
   <nav>
     <div id="navbar">
       <h1 style={{ textAlign: 'center' }}>Language Knight</h1>
-      <Link to="/">Home</Link>
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <Link to="/">Home</Link>
+      </motion.div>
     </div>
   </nav>
 );

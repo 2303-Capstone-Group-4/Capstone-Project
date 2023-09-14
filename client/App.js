@@ -8,7 +8,7 @@ import WrongPage from './components/WrongPage';
 
 const App = () => {
   return (
-    <div>
+    <div id="content">
       <Navbar />
       <Routes>
         <Route
