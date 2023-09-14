@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import QuizPopup from './QuizPopup';
 import UserInfo from './UserInfo';
-import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 const GameBoard = (props) => {
   const { state } = useLocation();
@@ -32,19 +32,22 @@ const GameBoard = (props) => {
       //setPosition(space);
         //console.log(space);
         //console.log(position);
+      //if clicked, show image
+      //
     //remove Character from Previous Position
-
   };
-
+  
   const gameItems = spaces.map((space) => (
     <TableCell key={space} onClick={() => console.log(space)}>
-      <img
-        src={'./20230907_180304.jpg'}
-        alt={''}
-      />
-      <Typography sx={{ textAlign: 'center'}}>
-        {space}
-      </Typography>
+      <Box display="flex" justifyContent="center" alignItems="center" sx={{ flexDirection: "column" }}>
+        <img
+          src={'./20230907_180304.jpg'}
+          alt={''}
+        />
+        <Button variant="outlined" sx={{ justifyContent: "center"}}>
+          {space}
+        </Button>
+      </Box>    
     </TableCell>
   ));
 
