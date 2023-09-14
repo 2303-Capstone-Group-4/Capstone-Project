@@ -1,22 +1,23 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import QuizPopup from './QuizPopup';
+import UserInfo from './UserInfo';
 
 const GameBoard = (props) => {
   const { state } = useLocation();
   const { language, character } = state;
   // console.log(language);
   // console.log(character);
+
+  //State solution for where the character is located?
 
   const spaces = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -32,13 +33,7 @@ const GameBoard = (props) => {
 
   return (
     <div id="gameboard">
-      <h3>This is the GameBoard</h3>
-
-      <Box sx={{ flexGrow: 1 }}>
-        <p>User Score: {0}</p>
-        <p>User Health: {3}</p>
-      </Box>
-
+      <UserInfo health={0}/>
       <TableContainer component={Paper}>
         <Table>
           <TableBody>
