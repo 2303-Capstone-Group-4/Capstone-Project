@@ -9,16 +9,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import QuizPopup from './QuizPopup';
-import MonsterBar from './MonsterBar';
 import UserInfo from './UserInfo';
 import Box from '@mui/material/Box';
 
 const GameBoard = (props) => {
-  const { state } = useLocation();
-  const { language, character } = state;
-  // console.log(language);
-  // console.log(character);
-
   const [position, setPosition] = useState(1);
   const [health, setHealth] = useState(0);
 
@@ -75,7 +69,6 @@ const GameBoard = (props) => {
       </TableContainer>
       <hr />
       <QuizPopup />
-      <MonsterBar />
     </div>
   );
 };

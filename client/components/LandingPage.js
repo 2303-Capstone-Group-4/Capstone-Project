@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useDispatch } from 'react-redux';
+import { setLanguage, setCharacter } from '../store/store';
 
 const LandingPage = () => {
-  const [language, setLanguage] = useState('');
-  const [selectedChar, setSelectedChar] = useState({
+  const [language, changeLanguage] = useState('');
+  const [selectedChar, changeSelectedChar] = useState({
     char1: false,
     char2: false,
     char3: false,
     char4: false,
   });
+  const dispatch = useDispatch();
 
   let navigate = useNavigate();
   const changeRoute = () => {
@@ -33,16 +36,18 @@ const LandingPage = () => {
     } else {
       let path = '/GameBoard';
       let character = '';
-      if (selectedChar.char1 === true) {
-        character = 'char1';
-      } else if (selectedChar.char2 === true) {
-        character = 'char2';
+      if (selectedChar.char4 === true) {
+        character = 'char4';
       } else if (selectedChar.char3 === true) {
         character = 'char3';
+      } else if (selectedChar.char2 === true) {
+        character = 'char2';
       } else {
-        character = 'char4';
+        character = 'char1';
       }
-      navigate(path, { state: { language: language, character: character } });
+      dispatch(setLanguage(language));
+      dispatch(setCharacter(character));
+      navigate(path);
     }
   };
 
@@ -56,7 +61,7 @@ const LandingPage = () => {
     if (selectedChar[inputChar] != true) {
       newState[inputChar] = true;
     }
-    setSelectedChar(newState);
+    changeSelectedChar(newState);
   };
 
   return (
@@ -65,7 +70,7 @@ const LandingPage = () => {
       <input
         id="language-input"
         value={language}
-        onChange={(ev) => setLanguage(ev.target.value)}
+        onChange={(ev) => changeLanguage(ev.target.value)}
       />
       <div id="character-selector">
         <h2 id="character-label">Select Character Here:</h2>
