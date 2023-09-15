@@ -7,30 +7,17 @@ import { motion } from "framer-motion";
 // import Typography from '@mui/material/Typography';
 
 const Navbar = () => (
-  // <div id="navbar">
-  //   <Box sx={{ flexGrow: 1 }}>
-  //     <AppBar position="static">
-  //       <Toolbar>
-  //         <Typography
-  //           variant="h6"
-  //           component="div"
-  //           sx={{ flexGrow: 1 }}
-  //         >
-  //           <Link to="/">Home</Link>
-  //         </Typography>
-  //       </Toolbar>
-  //     </AppBar>
-  //   </Box>
-  // </div>
-  <nav>
-    <div id="navbar">
-      <h1 style={{ textAlign: "center" }}>Language Knight</h1>
-      <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-        <Link to="/">Home</Link>
+
+  <Box sx={{ flexGrow: 1 }}>
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Link to="/">Home</Link>
         <Link to="/Tier1Info">Tier1Info</Link>
-      </motion.div>
-    </div>
-  </nav>
+        </Typography>
+      </Toolbar>
+    </AppBar>
+  </Box>
 );
 
 export default Navbar;

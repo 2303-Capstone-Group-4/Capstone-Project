@@ -1,6 +1,7 @@
 const SET_POSITION = 'SET_POSITION';
 const SET_LANGUAGE = 'SET_LANGUAGE';
 const SET_CHARACTER = 'SET_CHARACTER';
+const FETCH_STORE = 'FETCH_STORE';
 
 export const setPosition = (position) => {
   return {
@@ -20,6 +21,12 @@ export const setCharacter = (character) => {
   return {
     type: SET_CHARACTER,
     character,
+  };
+};
+
+export const fetchStore = () => {
+  return {
+    type: FETCH_STORE,
   };
 };
 
@@ -45,6 +52,10 @@ const reduxStore = (state = initialState, action) => {
       return {
         ...state,
         character: action.character,
+      };
+    case FETCH_STORE:
+      return {
+        ...state,
       };
     default:
       return state;
