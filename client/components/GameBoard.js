@@ -13,11 +13,6 @@ import UserInfo from './UserInfo';
 import Box from '@mui/material/Box';
 
 const GameBoard = (props) => {
-  const { state } = useLocation();
-  const { language, character } = state;
-  // console.log(language);
-  // console.log(character);
-
   const [position, setPosition] = useState(1);
   const [health, setHealth] = useState(0);
 
@@ -29,31 +24,42 @@ const GameBoard = (props) => {
 
   const changePosition = (space) => {
     //onClick, change Character position to be on clicked Button
-      //setPosition(space);
-        //console.log(space);
-        //console.log(position);
-      //if clicked, show image
-      //
+    //setPosition(space);
+    //console.log(space);
+    //console.log(position);
+    //if clicked, show image
+    //
     //remove Character from Previous Position
   };
-  
+
   const gameItems = spaces.map((space) => (
-    <TableCell key={space} onClick={() => console.log(space)}>
-      <Box display="flex" justifyContent="center" alignItems="center" sx={{ flexDirection: "column" }}>
+    <TableCell
+      key={space}
+      onClick={() => console.log(space)}
+    >
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ flexDirection: 'column' }}
+      >
         <img
-          src={'./20230907_180304.jpg'}
+          src={'./images/20230907_180304.jpg'}
           alt={''}
         />
-        <Button variant="outlined" sx={{ justifyContent: "center"}}>
+        <Button
+          variant="outlined"
+          sx={{ justifyContent: 'center' }}
+        >
           {space}
         </Button>
-      </Box>    
+      </Box>
     </TableCell>
   ));
 
   return (
     <div id="gameboard">
-      <UserInfo health={health}/>
+      <UserInfo health={health} />
       <TableContainer component={Paper}>
         <Table>
           <TableBody>
