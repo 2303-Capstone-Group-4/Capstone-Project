@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 body {
   font-family: sans-serif;
   height: 100%;
@@ -37,6 +41,14 @@ form div {
   display: inline-block;
 }
 
+#content {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
 #start-button {
   display: block;
   margin-left: auto;
@@ -58,7 +70,7 @@ form div {
   padding-top: 50px;
   /* background-image: linear-gradient(to bottom right, #30f2a8, #faf9e1); */
   background-image: linear-gradient(to bottom, #fff9d6, #faf9e1);
-  height: 100vh;
+  height: 100%;
 }
 
 #language-input {
@@ -113,9 +125,9 @@ form div {
   border: solid;
   border-width: 0 3px 3px 3px;
   border-color: black;
-  border-radius: 0 0 50px 50px;
+  border-radius: 0 0 30px 30px;
   position: fixed;
-  width: 80%;
+  width: 90%;
   top: 0;
   margin: auto;
   left: 0;
@@ -125,6 +137,8 @@ form div {
 }
 #gameboard {
   padding-top: 100px;
+  background-image: linear-gradient(to bottom, #fff9d6, #faf9e1);
+  height: 100%;
 }
 
 .modal {
@@ -171,4 +185,21 @@ form div {
 .header {
   font-size: larger;
   font-weight: bold;
+}
+
+.popup-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.popup-content {
+  animation: pop-in 0.3s;
 }
