@@ -1,8 +1,8 @@
 //This is tier 1 of information learned: Introductory phrases and greetings
-const router = require('express').Router();
-const axios = require('axios');
-const OpenAI = require('openai');
-require('dotenv').config();
+const router = require("express").Router();
+const axios = require("axios");
+const OpenAI = require("openai");
+require("dotenv").config();
 module.exports = router;
 // This code is for v4 of the openai package: npmjs.com/package/openai
 
@@ -10,14 +10,14 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-router.get('/', async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const language = req.query.language;
     const response = await openai.chat.completions.create({
-      model: 'gpt-4',
+      model: "gpt-4",
       messages: [
         {
-          role: 'user',
+          role: "user",
           content: `Provide the next response entirely in the following general JSON-object format:
           {
           "Info": {

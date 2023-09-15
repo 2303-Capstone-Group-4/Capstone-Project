@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 // import AppBar from '@mui/material/AppBar';
 // import Box from '@mui/material/Box';
 // import Toolbar from '@mui/material/Toolbar';
@@ -24,12 +24,10 @@ const Navbar = () => (
   // </div>
   <nav>
     <div id="navbar">
-      <h1 style={{ textAlign: 'center' }}>Language Knight</h1>
-      <motion.div
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
+      <h1 style={{ textAlign: "center" }}>Language Knight</h1>
+      <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
         <Link to="/">Home</Link>
+        <Link to="/Tier1Info">Tier1Info</Link>
       </motion.div>
     </div>
   </nav>
