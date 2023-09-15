@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { setInfo } from "../store";
+import { setInfo1 } from "../store";
 
 // const info = {
 //   Info: {
@@ -48,14 +48,14 @@ import { setInfo } from "../store";
 const InfoComp = (props) => {
   const { language, character } = useSelector((state) => state.reduxStore);
   console.log(language);
-  const { setInfo, info } = props;
+  const { setInfo1, info1 } = props;
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      await dispatch(setInfo(language));
+      await dispatch(setInfo1(language));
     };
     fetchData();
     setLoading(false);
@@ -88,8 +88,8 @@ const InfoComp = (props) => {
       <hr></hr>
       <div>This is a TEST</div>
       <div>
-        {loading === false && info?.Info?.English["0"] !== undefined
-          ? info?.Info?.English["0"]
+        {loading === false && info1?.Info?.English["0"] !== undefined
+          ? info1?.Info?.English["0"]
           : "Loading..."}
       </div>
       {/* <div>{info ? info.Info.English["0"] : "Loading..."}</div> */}
@@ -99,14 +99,14 @@ const InfoComp = (props) => {
 
 const mapState = (state) => {
   return {
-    info: state.info,
+    info1: state.info1,
   };
 };
 
 const mapDispatch = (dispatch) => {
   return {
-    setInfo(language) {
-      dispatch(setInfo(language));
+    setInfo1(language) {
+      dispatch(setInfo1(language));
     },
   };
 };
