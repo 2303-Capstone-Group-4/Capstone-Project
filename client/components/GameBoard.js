@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -11,26 +10,49 @@ import Button from '@mui/material/Button';
 import QuizPopup from './QuizPopup';
 import UserInfo from './UserInfo';
 import Box from '@mui/material/Box';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPosition } from '../store/store';
 
-const GameBoard = (props) => {
-  const [position, setPosition] = useState(1);
+const GameBoard = () => {
+  const dispatch = useDispatch();
+  const position = useSelector((state) => state.reduxStore.position);
+  // const storeLanguage = useSelector((state) => state.reduxStore.language);
+  const character = useSelector((state) => state.reduxStore.character);
+
+  let imgsrc = '';
+  if (character === 'char1') {
+    imgsrc = './images/20230907_180304.jpg';
+  } else if (character === 'char2') {
+    imgsrc = './images/20230907_180322.jpg';
+  } else if (character === 'char3') {
+    imgsrc = './images/20230907_180337.jpg';
+  } else if (character === 'char4') {
+    imgsrc = './images/20230907_180348.jpg';
+  }
+
   const [health, setHealth] = useState(0);
 
-  const spaces = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const spaces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  //when game starts, 1st space is where the character is
-  //other spaces are empty
-  //
-
-  const changePosition = (space) => {
-    //onClick, change Character position to be on clicked Button
-    //setPosition(space);
-    //console.log(space);
-    //console.log(position);
-    //if clicked, show image
-    //
-    //remove Character from Previous Position
+  const onKeyDown = (ev) => {
+    if (ev.code === 'ArrowLeft') {
+      if (position > 0) {
+        dispatch(setPosition(position - 1));
+      }
+    }
+    if (ev.code === 'ArrowRight') {
+      if (position < 9) {
+        dispatch(setPosition(position + 1));
+      }
+    }
   };
+
+  useEffect(() => {
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  });
 
   const gameItems = spaces.map((space) => (
     <TableCell
@@ -43,16 +65,19 @@ const GameBoard = (props) => {
         alignItems="center"
         sx={{ flexDirection: 'column' }}
       >
-        <img
-          src={'./images/20230907_180304.jpg'}
-          alt={''}
-        />
-        <Button
-          variant="outlined"
-          sx={{ justifyContent: 'center' }}
-        >
-          {space}
-        </Button>
+        {space === position ? (
+          <img
+            src={imgsrc}
+            alt={''}
+          />
+        ) : (
+          <Button
+            variant="outlined"
+            sx={{ justifyContent: 'center' }}
+          >
+            {space}
+          </Button>
+        )}
       </Box>
     </TableCell>
   ));
