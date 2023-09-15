@@ -14,10 +14,6 @@ const Navbar = () => (
         </Typography>
       </Toolbar>
     </AppBar>
-    {/* <div id="navbar">
-      <h1 style={{ textAlign: 'center' }}>Language Knight</h1>
-      
-    </div> */}
   </Box>
 );
 
