@@ -66,7 +66,7 @@ const LandingPage = () => {
 
   return (
     <div id="home-page">
-      <h2 id="input-label">Enter language Here:</h2>
+      <h2 id="input-label">Enter Language Here:</h2>
       <input
         id="language-input"
         value={language}
