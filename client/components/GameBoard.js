@@ -16,7 +16,6 @@ import { setPosition } from '../store/store';
 const GameBoard = () => {
   const dispatch = useDispatch();
   const position = useSelector((state) => state.reduxStore.position);
-  // const storeLanguage = useSelector((state) => state.reduxStore.language);
   const character = useSelector((state) => state.reduxStore.character);
 
   let imgsrc = '';
@@ -53,6 +52,10 @@ const GameBoard = () => {
       document.removeEventListener('keydown', onKeyDown);
     };
   });
+
+  useEffect(() => {
+    dispatch(setPosition(0));
+  }, []);
 
   const gameItems = spaces.map((space) => (
     <TableCell
