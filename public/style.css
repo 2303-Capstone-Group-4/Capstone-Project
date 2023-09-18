@@ -163,6 +163,15 @@ form div {
   padding: 10px;
 }
 
+#info-title {
+  display: block;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  font-weight: bold;
+  font-size: larger;
+}
+
 .close {
   cursor: pointer;
   position: absolute;

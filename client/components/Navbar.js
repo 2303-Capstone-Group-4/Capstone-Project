@@ -19,6 +19,9 @@ const Navbar = () => (
           sx={{ flexGrow: 1 }}
         >
           <Link to="/">Home</Link>
+          <Link to="/Tier1Info">Tier1Info</Link>
+          <Link to="/Tier2Info">Tier2Info</Link>
+          <Link to="/Tier3Info">Tier3Info</Link>
         </Typography>
       </Toolbar>
     </AppBar>
