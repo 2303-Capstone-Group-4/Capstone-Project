@@ -2,48 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { setInfo1 } from "../store";
-
-// const info = {
-//   Info: {
-//     English: [
-//       "Hello",
-//       "Good morning",
-//       "Good afternoon",
-//       "Good evening",
-//       "Good night",
-//       "How are you?",
-//       "I'm fine, thank you",
-//       "Nice to meet you",
-//       "Please",
-//       "Thank you",
-//     ],
-//     Language: [
-//       "Hola",
-//       "Buenos días",
-//       "Buenas tardes",
-//       "Buenas noches",
-//       "Buenas noches",
-//       "¿Cómo estás?",
-//       "Estoy bien, gracias",
-//       "Mucho gusto",
-//       "Por favor",
-//       "Gracias",
-//     ],
-//   },
-//   Quiz: {
-//     Questions: [
-//       "What is 'Good morning' in Spanish?",
-//       "How do you say 'Nice to meet you' in Spanish?",
-//       "What is the Spanish translation for 'Please'?",
-//     ],
-//     Options: [
-//       ["Hola", "Buenos días", "Buenas tardes", "Buenas noches"],
-//       ["Mucho gusto", "Estoy bien, gracias", "Por favor", "Gracias"],
-//       ["Hola", "Buenos días", "Por favor", "Gracias"],
-//     ],
-//     Answers: ["Buenos días", "Mucho gusto", "Por favor"],
-//   },
-// };
+import { Link } from "react-router-dom";
 
 const InfoComp = (props) => {
   const { language, character } = useSelector((state) => state.reduxStore);
@@ -63,36 +22,44 @@ const InfoComp = (props) => {
 
   return (
     <div>
+      <div id="info-title">Tier 1 - Introductory Phrases & Greetings</div>
       <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <div>This is a TEST</div>
-      <div>
-        {loading === false && info1?.Info?.English["0"] !== undefined
-          ? info1?.Info?.English["0"]
-          : "Loading..."}
+      <div class="row">
+        <div class="col">
+          {"English"}
+          {loading === false && info1?.Info?.English["0"] !== undefined ? (
+            info1.Info.English.map((word) => (
+              <ul class="list-unstyled">
+                <li>
+                  <i class="fa-solid fa-globe"> </i>
+                  {word}
+                </li>
+              </ul>
+            ))
+          ) : (
+            <i class="fa-solid fa-spinner"> Loading </i>
+          )}
+        </div>
+        <div class="col">
+          {language}
+          {loading === false && info1?.Info?.English["0"] !== undefined ? (
+            info1.Info.Language.map((word) => (
+              <ul class="list-unstyled">
+                <li>
+                  <i class="fa-solid fa-earth-americas"> </i>
+                  {word}
+                </li>
+              </ul>
+            ))
+          ) : (
+            <i class="fa-solid fa-spinner"> Loading </i>
+          )}
+        </div>
       </div>
-      {/* <div>{info ? info.Info.English["0"] : "Loading..."}</div> */}
+      <hr></hr>
+      <div id="info-title">
+        <Link to="/GameBoard">Back to Game Board</Link>
+      </div>
     </div>
   );
 };
@@ -112,4 +79,3 @@ const mapDispatch = (dispatch) => {
 };
 
 export default connect(mapState, mapDispatch)(InfoComp);
-// export default InfoComp;

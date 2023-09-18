@@ -1,7 +1,7 @@
 import axios from "axios";
 const info1 = (state = {}, action) => {
   if (action.type === "SET_INFO1") {
-    return { ...state, ...action.info };
+    return { ...state, ...action.info1 };
   }
   return { ...state };
 };
