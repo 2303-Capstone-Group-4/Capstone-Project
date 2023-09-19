@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import QuizPopup from './QuizPopup';
+import InfoPopup from './InfoPopup';
 import UserInfo from './UserInfo';
 import Box from '@mui/material/Box';
 import { useSelector, useDispatch } from 'react-redux';
@@ -59,14 +60,16 @@ const GameBoard = () => {
 
   const gameItems = spaces.map((space) => (
     <TableCell
+      id="board"
       key={space}
       onClick={() => console.log(space)}
+      sx={{ display: 'flex', flexDirection: 'row', width: '100%' }}
     >
       <Box
         display="flex"
         justifyContent="center"
         alignItems="center"
-        sx={{ flexDirection: 'column' }}
+        sx={{ display: 'flex', flexDirection: 'row' }}
       >
         {space === position ? (
           <img
@@ -76,7 +79,7 @@ const GameBoard = () => {
         ) : (
           <Button
             variant="outlined"
-            sx={{ justifyContent: 'center' }}
+            sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
           >
             {space}
           </Button>

@@ -16,12 +16,40 @@ const Navbar = () => (
         <Typography
           variant="h6"
           component="div"
-          sx={{ flexGrow: 1 }}
+          sx={{ fontWeight: 'bold', fontSize: 'x-large' }}
         >
-          <Link to="/">Home</Link>
-          <Link to="/Tier1Info">Tier1Info</Link>
-          <Link to="/Tier2Info">Tier2Info</Link>
-          <Link to="/Tier3Info">Tier3Info</Link>
+          Language Knight
+        </Typography>
+
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 1, display: 'flex', justifyContent: 'space-evenly' }}
+        >
+          <Link
+            to="/"
+            className="navlink"
+          >
+            Home
+          </Link>
+          <Link
+            to="/Tier1Info"
+            className="navlink"
+          >
+            Tier1Info
+          </Link>
+          <Link
+            to="/Tier2Info"
+            className="navlink"
+          >
+            Tier2Info
+          </Link>
+          <Link
+            to="/Tier3Info"
+            className="navlink"
+          >
+            Tier3Info
+          </Link>
         </Typography>
       </Toolbar>
     </AppBar>
