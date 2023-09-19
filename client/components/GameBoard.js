@@ -8,7 +8,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import QuizPopup from './QuizPopup';
-import InfoPopup from './InfoPopup';
 import UserInfo from './UserInfo';
 import Box from '@mui/material/Box';
 import { useSelector, useDispatch } from 'react-redux';

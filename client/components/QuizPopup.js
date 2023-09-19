@@ -48,6 +48,7 @@ const QuizPopup = () => {
             bgcolor: 'background.paper',
             border: '2px solid #000',
             boxShadow: 24,
+            borderRadius: '15px',
             p: 4,
           }}
         >
@@ -56,16 +57,17 @@ const QuizPopup = () => {
               {info1.Quiz.Questions.map((question, index) => {
                 return (
                   <FormControl key={index}>
-                    <div>{info1.Quiz.Questions[0]}</div>
                     <FormLabel>{question}</FormLabel>
                     <RadioGroup>
                       {info1.Quiz.Options[index].map((option) => {
-                        <FormControlLabel
-                          value={option}
-                          control={<Radio />}
-                          label={option}
-                          key={option}
-                        />;
+                        return (
+                          <FormControlLabel
+                            value={option}
+                            control={<Radio />}
+                            label={option}
+                            key={option}
+                          />
+                        );
                       })}
                     </RadioGroup>
                   </FormControl>
