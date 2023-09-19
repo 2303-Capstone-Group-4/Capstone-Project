@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { setLanguage, setCharacter } from "../store/store";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 const LandingPage = () => {
   const [language, changeLanguage] = useState("");
@@ -65,16 +67,17 @@ const LandingPage = () => {
   };
 
   return (
-    <div id="home-page">
-      <h2 id="input-label">Enter Language Here:</h2>
+    <Box id="home-page">
+      <Typography variant="h2" align="center">Language Knight</Typography>
+      <Typography variant="h3" id="input-label">Enter Language Here</Typography>
       <input
         id="language-input"
         value={language}
         onChange={(ev) => changeLanguage(ev.target.value)}
       />
-      <div id="character-selector">
-        <h2 id="character-label">Select Character Here:</h2>
-        <div id="char-images">
+      <Box id="character-selector">
+        <Typography variant="h3" id="character-label" sx={{ textDecoration: "underline"}}>Choose Your Character</Typography>
+        <Box id="char-images">
           <motion.img
             src={"./images/20230907_180304.jpg"}
             whileHover={{ scale: 1.1 }}
@@ -103,8 +106,8 @@ const LandingPage = () => {
             className={selectedChar.char4.toString() + "-selected"}
             onClick={() => selectChar("char4")}
           />
-        </div>
-      </div>
+        </Box>
+      </Box>
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -113,7 +116,7 @@ const LandingPage = () => {
       >
         Click to Start!
       </motion.button>
-    </div>
+    </Box>
   );
 };
 
