@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Box from "@mui/material/Box";
 
 const GamePage = () => {
   let navigate = useNavigate();
@@ -10,7 +11,7 @@ const GamePage = () => {
   };
 
   return (
-    <div id="home-page">
+    <Box id="home-page">
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -19,7 +20,7 @@ const GamePage = () => {
       >
         Return Home!
       </motion.button>
-    </div>
+    </Box>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+//import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -29,7 +29,7 @@ const GameBoard = () => {
     imgsrc = './images/20230907_180348.jpg';
   }
 
-  const [health, setHealth] = useState(0);
+  //const [health, setHealth] = useState(3);
 
   const spaces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -89,7 +89,7 @@ const GameBoard = () => {
 
   return (
     <div id="gameboard">
-      <UserInfo health={health} />
+      {/* <UserInfo health={health} /> */}
       <TableContainer component={Paper}>
         <Table>
           <TableBody>
