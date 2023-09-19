@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Typography from "@mui/material/Typography";
 
 const WrongPage = () => (
     <div>
-        <p>Sorry, there is nothing here</p>
+        <Typography>Sorry, there is nothing here</Typography>
         <Link to="/">Home</Link>
     </div>
 );

@@ -108,6 +108,7 @@ form div {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 #char-images img {
   margin: 15px;
   border-radius: 15px;
@@ -135,6 +136,7 @@ form div {
   z-index: 100;
   box-shadow: 0 5px 5px grey;
 }
+
 #gameboard {
   padding-top: 100px;
   background-image: linear-gradient(to bottom, #fff9d6, #faf9e1);
@@ -156,6 +158,7 @@ form div {
   border-radius: 20px;
   box-shadow: 5px 5px 5px rgb(34, 34, 34);
 }
+
 #modal-button {
   display: block;
   margin-left: auto;

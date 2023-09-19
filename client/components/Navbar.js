@@ -11,10 +11,10 @@ const Navbar = () => (
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Link to="/">Home</Link>
-          <Link to="/Tier1Info">Tier1Info</Link>
-          <Link to="/Tier2Info">Tier2Info</Link>
-          <Link to="/Tier3Info">Tier3Info</Link>
+          <Link to="/">Home |</Link>
+          <Link to="/Tier1Info"> Tier 1 Info |</Link>
+          <Link to="/Tier2Info"> Tier 2 Info |</Link>
+          <Link to="/Tier3Info"> Tier 3 Info</Link>
         </Typography>
       </Toolbar>
     </AppBar>
