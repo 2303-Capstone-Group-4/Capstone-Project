@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const WrongPage = () => (
-    <div>
-        <p>Sorry, there is nothing here</p>
+    <Box>
+        <Typography>Sorry, there is nothing here</Typography>
         <Link to="/">Home</Link>
-    </div>
+    </Box>
 );
 
 export default WrongPage;
