@@ -6,7 +6,7 @@ const UserInfo = (props) => {
     const { health } = props;
     return (
         <Box sx={{ flexGrow: 1 }}>
-        <Typography variant="h6">User Health: {health}</Typography>
+            <Typography variant="h6">User Health: {health}</Typography>
         </Box>
     )   
 }

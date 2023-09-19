@@ -69,14 +69,15 @@ const LandingPage = () => {
   return (
     <Box id="home-page">
       <Typography variant="h2" align="center">Language Knight</Typography>
-      <Typography variant="h3" id="input-label">Enter Language Here</Typography>
+      <Typography align="center">Enter a language you want to practice, choose your character, and then click the start button to begin a game!</Typography>
+      <Typography variant="h3" id="input-label" sx={{ textDecoration: "underline" }}>Enter Your Language</Typography>
       <input
         id="language-input"
         value={language}
         onChange={(ev) => changeLanguage(ev.target.value)}
       />
       <Box id="character-selector">
-        <Typography variant="h3" id="character-label" sx={{ textDecoration: "underline"}}>Choose Your Character</Typography>
+        <Typography variant="h3" id="character-label" sx={{ textDecoration: "underline" }}>Choose Your Character</Typography>
         <Box id="char-images">
           <motion.img
             src={"./images/20230907_180304.jpg"}
