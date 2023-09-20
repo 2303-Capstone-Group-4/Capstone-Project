@@ -63,23 +63,38 @@ const GameBoard = () => {
       id="board"
       key={space}
       onClick={() => console.log(space)}
-      sx={{ display: 'flex', flexDirection: 'row', width: '100%' }}
     >
       <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        sx={{ display: 'flex', flexDirection: 'row' }}
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          maxWidth: '100px',
+        }}
       >
         {space === position ? (
           <img
             src={imgsrc}
             alt={''}
+            style={{
+              width: '100%',
+              justifyContent: 'center',
+              borderRadius: '15px',
+              boxShadow: '5px 5px 5px black',
+            }}
           />
         ) : (
           <Button
             variant="outlined"
-            sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
+            sx={{
+              justifyContent: 'center',
+              borderRadius: '15px',
+              background: 'white',
+              borderColor: 'black',
+              borderWidth: '3px',
+              color: 'black',
+              fontWeight: 'bold',
+            }}
           >
             {space}
           </Button>

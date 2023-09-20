@@ -62,10 +62,7 @@ const QuizPopup = () => {
             <div>
               {info1.Quiz.Questions.map((question, index) => {
                 return (
-                  <FormControl
-                    key={index}
-                    onSubmit={testAnswers}
-                  >
+                  <FormControl key={index}>
                     <FormLabel>{question}</FormLabel>
                     <RadioGroup>
                       {info1.Quiz.Options
