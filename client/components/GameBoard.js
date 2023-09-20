@@ -16,8 +16,8 @@ import { setPosition } from '../store/store';
 const GameBoard = () => {
   const dispatch = useDispatch();
   const position = useSelector((state) => state.reduxStore.position);
-  // const storeLanguage = useSelector((state) => state.reduxStore.language);
   const character = useSelector((state) => state.reduxStore.character);
+  const language = useSelector((state) => state.reduxStore.language);
 
   let imgsrc = '';
   if (character === 'char1') {
@@ -54,26 +54,47 @@ const GameBoard = () => {
     };
   });
 
+  useEffect(() => {
+    dispatch(setPosition(0));
+  }, []);
+
   const gameItems = spaces.map((space) => (
     <TableCell
+      id="board"
       key={space}
       onClick={() => console.log(space)}
     >
       <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        sx={{ flexDirection: 'column' }}
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          maxWidth: '100px',
+        }}
       >
         {space === position ? (
           <img
             src={imgsrc}
             alt={''}
+            style={{
+              width: '100%',
+              justifyContent: 'center',
+              borderRadius: '15px',
+              boxShadow: '5px 5px 5px black',
+            }}
           />
         ) : (
           <Button
             variant="outlined"
-            sx={{ justifyContent: 'center' }}
+            sx={{
+              justifyContent: 'center',
+              borderRadius: '15px',
+              background: 'white',
+              borderColor: 'black',
+              borderWidth: '3px',
+              color: 'black',
+              fontWeight: 'bold',
+            }}
           >
             {space}
           </Button>
@@ -85,6 +106,7 @@ const GameBoard = () => {
   return (
     <div id="gameboard">
       {/* <UserInfo health={health} /> */}
+      <h2 id="language">Language: {language}</h2>
       <TableContainer component={Paper}>
         <Table>
           <TableBody>
@@ -93,7 +115,7 @@ const GameBoard = () => {
         </Table>
       </TableContainer>
       <hr />
-      <QuizPopup />
+      {position === 4 ? <QuizPopup /> : <div />}
     </div>
   );
 };
