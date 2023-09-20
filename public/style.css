@@ -235,3 +235,7 @@ tr {
   flex-wrap: wrap;
   width: 100%;
 }
+
+#language {
+  text-align: center;
+}

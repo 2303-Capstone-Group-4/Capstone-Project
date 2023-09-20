@@ -17,6 +17,7 @@ const GameBoard = () => {
   const dispatch = useDispatch();
   const position = useSelector((state) => state.reduxStore.position);
   const character = useSelector((state) => state.reduxStore.character);
+  const language = useSelector((state) => state.reduxStore.language);
 
   let imgsrc = '';
   if (character === 'char1') {
@@ -90,6 +91,7 @@ const GameBoard = () => {
   return (
     <div id="gameboard">
       {/* <UserInfo health={health} /> */}
+      <h2 id="language">Language: {language}</h2>
       <TableContainer component={Paper}>
         <Table>
           <TableBody>
@@ -98,7 +100,7 @@ const GameBoard = () => {
         </Table>
       </TableContainer>
       <hr />
-      <QuizPopup />
+      {position === 4 ? <QuizPopup /> : <div />}
     </div>
   );
 };
