@@ -15,9 +15,17 @@ import { setPosition } from '../store/store';
 
 const GameBoard = () => {
   const dispatch = useDispatch();
-  const position = useSelector((state) => state.reduxStore.position);
-  const character = useSelector((state) => state.reduxStore.character);
-  const language = useSelector((state) => state.reduxStore.language);
+  const { position, character, language } = useSelector(
+    (state) => state.reduxStore
+  );
+  const [progress, setProgress] = useState({
+    info1: false,
+    quiz1: false,
+    info2: false,
+    quiz2: false,
+    info3: false,
+    quiz3: false,
+  });
 
   let imgsrc = '';
   if (character === 'char1') {
@@ -81,6 +89,8 @@ const GameBoard = () => {
               justifyContent: 'center',
               borderRadius: '15px',
               boxShadow: '5px 5px 5px black',
+              minHeight: '40.5px',
+              minWidth: '40.5px',
             }}
           />
         ) : (
@@ -94,6 +104,7 @@ const GameBoard = () => {
               borderWidth: '3px',
               color: 'black',
               fontWeight: 'bold',
+              padding: '5px',
             }}
           >
             {space}
@@ -114,7 +125,6 @@ const GameBoard = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <hr />
       {position === 4 ? <QuizPopup /> : <div />}
     </div>
   );
