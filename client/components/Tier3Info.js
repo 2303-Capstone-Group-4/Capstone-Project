@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
 const InfoComp3 = (props) => {
-  const { language, character } = useSelector((state) => state.reduxStore);
+  const { language, tier2complete } = useSelector((state) => state.reduxStore);
   const { info3 } = useSelector((state) => state);
 
   console.log("HERE IS INFO3 updated:", info3);
@@ -38,43 +38,51 @@ const InfoComp3 = (props) => {
             p: 4,
           }}
         >
-          <div id="info-title">Tier 3 - Asking for Information</div>
-          <hr></hr>
-          <div class="row">
-            <div class="col">
-              {"English"}
+          {tier2complete === false ? (
+            <div id="info-title">Need to complete Quiz 2 first!</div>
+          ) : (
+            <div>
+              <div id="info-title">Tier 3 - Asking for Information</div>
               <hr></hr>
-              {loading === false && info3?.Info?.English["0"] !== undefined ? (
-                info3.Info.English.map((word) => (
-                  <ul class="list-unstyled">
-                    <li>
-                      <i class="fa-solid fa-globe"> </i>
-                      {word}
-                    </li>
-                  </ul>
-                ))
-              ) : (
-                <i class="fa-solid fa-spinner"> Loading </i>
-              )}
-            </div>
-            <div class="col">
-              {language}
+              <div class="row">
+                <div class="col">
+                  {"English"}
+                  <hr></hr>
+                  {loading === false &&
+                  info3?.Info?.English["0"] !== undefined ? (
+                    info3.Info.English.map((word) => (
+                      <ul class="list-unstyled">
+                        <li>
+                          <i class="fa-solid fa-globe"> </i>
+                          {word}
+                        </li>
+                      </ul>
+                    ))
+                  ) : (
+                    <i class="fa-solid fa-spinner"> Loading </i>
+                  )}
+                </div>
+                <div class="col">
+                  {language}
+                  <hr></hr>
+                  {loading === false &&
+                  info3?.Info?.English["0"] !== undefined ? (
+                    info3.Info.Language.map((word) => (
+                      <ul class="list-unstyled">
+                        <li>
+                          <i class="fa-solid fa-earth-americas"> </i>
+                          {word}
+                        </li>
+                      </ul>
+                    ))
+                  ) : (
+                    <i class="fa-solid fa-spinner"> Loading </i>
+                  )}
+                </div>
+              </div>
               <hr></hr>
-              {loading === false && info3?.Info?.English["0"] !== undefined ? (
-                info3.Info.Language.map((word) => (
-                  <ul class="list-unstyled">
-                    <li>
-                      <i class="fa-solid fa-earth-americas"> </i>
-                      {word}
-                    </li>
-                  </ul>
-                ))
-              ) : (
-                <i class="fa-solid fa-spinner"> Loading </i>
-              )}
             </div>
-          </div>
-          <hr></hr>
+          )}
         </Box>
       </Modal>
     </div>
