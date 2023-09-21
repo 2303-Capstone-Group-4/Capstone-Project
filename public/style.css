@@ -19,8 +19,20 @@ a {
   font-weight: bold;
 }
 
+.navlink:hover {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 label {
   display: block;
+}
+
+.navlink {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
 nav a {
@@ -56,7 +68,7 @@ form div {
   width: 40%;
   height: 60px;
   border-radius: 30px;
-  background: radial-gradient(#e492fd 30%, #fad6ff);
+  background: white;
   border-style: solid;
   border-color: black;
   border-width: 3px;
@@ -67,9 +79,8 @@ form div {
 }
 
 #home-page {
-  padding-top: 50px;
-  /* background-image: linear-gradient(to bottom right, #30f2a8, #faf9e1); */
-  background-image: linear-gradient(to bottom, #fff9d6, #faf9e1);
+  padding-top: 20px;
+  background: grey;
   height: 100%;
 }
 
@@ -108,6 +119,7 @@ form div {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 #char-images img {
   margin: 15px;
   border-radius: 15px;
@@ -117,27 +129,22 @@ form div {
 }
 
 .true-selected {
-  box-shadow: 10px 10px 5px grey;
+  box-shadow: 10px 10px 5px black;
 }
 
 #navbar {
-  background: radial-gradient(ellipse at top, #faf9e1, #00d885);
-  border: solid;
-  border-width: 0 3px 3px 3px;
-  border-color: black;
-  border-radius: 0 0 30px 30px;
   position: fixed;
-  width: 95%;
   top: 0;
   margin: auto;
   left: 0;
   right: 0;
   z-index: 100;
-  box-shadow: 0 5px 5px grey;
+  box-shadow: 0 5px 5px black;
 }
+
 #gameboard {
   padding-top: 100px;
-  background-image: linear-gradient(to bottom, #fff9d6, #faf9e1);
+  background: grey;
   height: 100%;
 }
 
@@ -156,6 +163,7 @@ form div {
   border-radius: 20px;
   box-shadow: 5px 5px 5px rgb(34, 34, 34);
 }
+
 #modal-button {
   display: block;
   margin-left: auto;
@@ -211,4 +219,23 @@ form div {
 
 .popup-content {
   animation: pop-in 0.3s;
+}
+
+#board {
+  background-color: grey;
+}
+
+td {
+  width: 10%;
+}
+
+tr {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#language {
+  text-align: center;
 }

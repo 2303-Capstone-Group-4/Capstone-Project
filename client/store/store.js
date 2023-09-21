@@ -1,7 +1,10 @@
+import axios from 'axios';
+
 const SET_POSITION = 'SET_POSITION';
 const SET_LANGUAGE = 'SET_LANGUAGE';
 const SET_CHARACTER = 'SET_CHARACTER';
 const FETCH_STORE = 'FETCH_STORE';
+const SET_INFO1 = 'SET_INFO1';
 
 export const setPosition = (position) => {
   return {
@@ -24,6 +27,16 @@ export const setCharacter = (character) => {
   };
 };
 
+export const setInfo1 = async (language) => {
+  const response = await axios.get('/api/tier1', {
+    params: { language },
+  });
+  return {
+    type: SET_INFO1,
+    info1: response.data,
+  };
+};
+
 export const fetchStore = () => {
   return {
     type: FETCH_STORE,
@@ -34,6 +47,7 @@ const initialState = {
   position: 0,
   language: 'spanish',
   character: 'char1',
+  info1: {},
 };
 
 const reduxStore = (state = initialState, action) => {
@@ -52,6 +66,11 @@ const reduxStore = (state = initialState, action) => {
       return {
         ...state,
         character: action.character,
+      };
+    case SET_INFO1:
+      return {
+        ...state,
+        info1: action.info1,
       };
     case FETCH_STORE:
       return {
