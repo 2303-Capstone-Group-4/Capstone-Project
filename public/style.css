@@ -48,11 +48,6 @@ nav a {
   border-width: 3px;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
-}
-
 #content {
   height: 100%;
 }

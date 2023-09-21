@@ -56,148 +56,151 @@ const QuizPopup = () => {
             p: 4,
           }}
         >
-          <FormControl
-            onSubmit={() => {
+          <form
+            onSubmit={(ev) => {
+              ev.preventDefault();
               console.log('PEE PEE POO POO');
             }}
           >
-            <div>
-              {info1?.Quiz?.Questions ? (
-                <div>
-                  {info1.Quiz.Questions.map((question, index) => {
-                    return (
-                      <div>
-                        <FormLabel>{question}</FormLabel>
-                        <RadioGroup>
-                          {info1.Quiz.Options
-                            ? info1.Quiz.Options[index]
-                              ? info1.Quiz.Options[index].map((option) => {
-                                  return (
-                                    <FormControlLabel
-                                      value={option}
-                                      control={<Radio />}
-                                      label={option}
-                                      key={option}
-                                    />
-                                  );
-                                })
-                              : info1.Quiz.Options.map((option) => {
-                                  return (
-                                    <FormControlLabel
-                                      value={option}
-                                      control={<Radio />}
-                                      label={option}
-                                      key={option}
-                                    />
-                                  );
-                                })
-                            : info1.Quiz.Questions.Options.map((option) => {
-                                return (
-                                  <FormControlLabel
-                                    value={option}
-                                    control={<Radio />}
-                                    label={option}
-                                    key={option}
-                                  />
-                                );
-                              })}
-                        </RadioGroup>
-                      </div>
-                    );
-                  })}
+            <FormControl>
+              <div>
+                {info1?.Quiz?.Questions ? (
                   <div>
-                    <Button>Submit</Button>
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  {info1?.Quiz?.Question1 ? (
+                    {info1.Quiz.Questions.map((question, index) => {
+                      return (
+                        <div>
+                          <FormLabel>{question}</FormLabel>
+                          <RadioGroup>
+                            {info1.Quiz.Options
+                              ? info1.Quiz.Options[index]
+                                ? info1.Quiz.Options[index].map((option) => {
+                                    return (
+                                      <FormControlLabel
+                                        value={option}
+                                        control={<Radio />}
+                                        label={option}
+                                        key={option}
+                                      />
+                                    );
+                                  })
+                                : info1.Quiz.Options.map((option) => {
+                                    return (
+                                      <FormControlLabel
+                                        value={option}
+                                        control={<Radio />}
+                                        label={option}
+                                        key={option}
+                                      />
+                                    );
+                                  })
+                              : info1.Quiz.Questions.Options.map((option) => {
+                                  return (
+                                    <FormControlLabel
+                                      value={option}
+                                      control={<Radio />}
+                                      label={option}
+                                      key={option}
+                                    />
+                                  );
+                                })}
+                          </RadioGroup>
+                        </div>
+                      );
+                    })}
                     <div>
-                      <FormLabel>
-                        {info1.Quiz.Question1.Question
-                          ? info1.Quiz.Question1.Question
-                          : info1.Quiz.Question1}
-                      </FormLabel>
-                      <RadioGroup>
-                        {info1.Quiz.Question1.Options
-                          ? info1.Quiz.Question1.Options.map((option) => (
-                              <FormControlLabel
-                                value={option}
-                                control={<Radio />}
-                                label={option}
-                                key={option}
-                              />
-                            ))
-                          : info1.Quiz.Options1.map((option) => (
-                              <FormControlLabel
-                                value={option}
-                                control={<Radio />}
-                                label={option}
-                                key={option}
-                              />
-                            ))}
-                      </RadioGroup>
-                      <FormLabel>
-                        {' '}
-                        {info1.Quiz.Question2.Question
-                          ? info1.Quiz.Question2.Question
-                          : info1.Quiz.Question2}
-                      </FormLabel>
-                      <RadioGroup>
-                        {info1.Quiz.Question2.Options
-                          ? info1.Quiz.Question2.Options.map((option) => (
-                              <FormControlLabel
-                                value={option}
-                                control={<Radio />}
-                                label={option}
-                                key={option}
-                              />
-                            ))
-                          : info1.Quiz.Options2.map((option) => (
-                              <FormControlLabel
-                                value={option}
-                                control={<Radio />}
-                                label={option}
-                                key={option}
-                              />
-                            ))}
-                      </RadioGroup>
-                      <FormLabel>
-                        {' '}
-                        {info1.Quiz.Question3.Question
-                          ? info1.Quiz.Question3.Question
-                          : info1.Quiz.Question3}
-                      </FormLabel>
-                      <RadioGroup>
-                        {info1.Quiz.Question3.Options
-                          ? info1.Quiz.Question3.Options.map((option) => (
-                              <FormControlLabel
-                                value={option}
-                                control={<Radio />}
-                                label={option}
-                                key={option}
-                              />
-                            ))
-                          : info1.Quiz.Options3.map((option) => (
-                              <FormControlLabel
-                                value={option}
-                                control={<Radio />}
-                                label={option}
-                                key={option}
-                              />
-                            ))}
-                      </RadioGroup>
-                      <div>
-                        <Button type="submit">Submit</Button>
-                      </div>
+                      <button type="submit">Submit</button>
                     </div>
-                  ) : (
-                    <div>Loading...</div>
-                  )}
-                </div>
-              )}
-            </div>
-          </FormControl>
+                  </div>
+                ) : (
+                  <div>
+                    {info1?.Quiz?.Question1 ? (
+                      <div>
+                        <FormLabel>
+                          {info1.Quiz.Question1.Question
+                            ? info1.Quiz.Question1.Question
+                            : info1.Quiz.Question1}
+                        </FormLabel>
+                        <RadioGroup>
+                          {info1.Quiz.Question1.Options
+                            ? info1.Quiz.Question1.Options.map((option) => (
+                                <FormControlLabel
+                                  value={option}
+                                  control={<Radio />}
+                                  label={option}
+                                  key={option}
+                                />
+                              ))
+                            : info1.Quiz.Options1.map((option) => (
+                                <FormControlLabel
+                                  value={option}
+                                  control={<Radio />}
+                                  label={option}
+                                  key={option}
+                                />
+                              ))}
+                        </RadioGroup>
+                        <FormLabel>
+                          {' '}
+                          {info1.Quiz.Question2.Question
+                            ? info1.Quiz.Question2.Question
+                            : info1.Quiz.Question2}
+                        </FormLabel>
+                        <RadioGroup>
+                          {info1.Quiz.Question2.Options
+                            ? info1.Quiz.Question2.Options.map((option) => (
+                                <FormControlLabel
+                                  value={option}
+                                  control={<Radio />}
+                                  label={option}
+                                  key={option}
+                                />
+                              ))
+                            : info1.Quiz.Options2.map((option) => (
+                                <FormControlLabel
+                                  value={option}
+                                  control={<Radio />}
+                                  label={option}
+                                  key={option}
+                                />
+                              ))}
+                        </RadioGroup>
+                        <FormLabel>
+                          {' '}
+                          {info1.Quiz.Question3.Question
+                            ? info1.Quiz.Question3.Question
+                            : info1.Quiz.Question3}
+                        </FormLabel>
+                        <RadioGroup>
+                          {info1.Quiz.Question3.Options
+                            ? info1.Quiz.Question3.Options.map((option) => (
+                                <FormControlLabel
+                                  value={option}
+                                  control={<Radio />}
+                                  label={option}
+                                  key={option}
+                                />
+                              ))
+                            : info1.Quiz.Options3.map((option) => (
+                                <FormControlLabel
+                                  value={option}
+                                  control={<Radio />}
+                                  label={option}
+                                  key={option}
+                                />
+                              ))}
+                        </RadioGroup>
+                        <div>
+                          <button type="submit">Submit</button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div>Loading...</div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </FormControl>
+          </form>
         </Box>
       </Modal>
     </div>
