@@ -1,39 +1,44 @@
-# Capstone-Project
+# Language Knight
 
-# MVP
+We developed this game with ChatGPT integration to make it easy to practice multiple languages. 
+Narrowing down what we wanted to do for our MVP was a bit of a challenge, but we ended up making a great little game together.
 
-**Vision:** Learning game designed for anyone to learn about conversational language through OpenAI-provided information and quizzes in three tiers of difficulty. Game components built out in React to track progress through three tiers
+## Screenshots
+Landing Page
 
-  - Front-end (React):
-    - [ ] Landing page with nav bar, Start button with input for language to learn, user character (Knight, Wizard, Troll). onClick => () => Game starts
-    - [ ] User component with progress bar, health bar for "quiz battles", appears at all times and progress bar/health bar gets reset when new topic is selected at start of game / phase 1 begins after full health is lost
-    - [ ] Map component (designed similar to a boardgame) with locations acting as information-centers and quiz-points
-    -   [ ] Pop-up information-center: displays information needed to learn about tier of language and pass the next quiz (e.g. English equivalent of word being learned)
-    -   [ ] Pop-up quiz-"battle": "Monster" avatar shows up to gamify quiz progress. Each time you answer a question correctly, animation plays with "attack" and monster's health bar decreases by 1/3. Once 3 questions are answered correctly, monster being defeated animation plays, next level of map component is   available for access
-    
-  - Back-end:
-    - Game functionality
-      - [ ] Database created with model for user (including health data, user image, user actions)
-      - [ ] Database created with model for NPC (including health bar, image, actions)
-    - OpenAI data
-     - [ ] API call set up to incorporate learning topic input by user
-     - [ ] API key and credentials set up to avoid individual user log-in, api call limit issues
-     - [ ] Multiple api calls set up for data in different phases of game with standardized set of prompts (e.g. quiz prompt for end of map, general information prompt for milestones/learning points in map)
+Gameboard
 
-  
-    
-- **Bonus Features**
-  - Topics
-    - [ ] Can use OpenAI to explore any topic
-      
-  - Front-end:
-    - [ ] Gaming framework incorporated with scrolling map (Game designed to simulate Pokemon-style gameplay, where user travels through map to gain knowledge and battles monster at end of map which involves quiz with all prior information involved.)
-    - [ ] Unreal engine integration
-    - [ ] Release game on Steam and the iOS app store (and make $$$), get bought out by Duolingo
-          
+## Built With
+<img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg"  title="React" alt="React" width="40" height="40"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/materialui/materialui-original.svg" title="Material UI" alt="Material UI" width="40" height="40"/>&nbsp;
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1920px-ChatGPT_logo.svg.png" title="ChatGPT" alt="ChatGPT" width="40" height="40"/>&nbsp;
 
-## Views
+## Contributors 
 
-- Landing page
-- User component
-- Map component
+**Michael Hughes**
+
+- Github https://github.com/mrmchughes
+- Email mrmchughes27@gmail.com
+- Linkedin https://www.linkedin.com/in/michaelhughes27/
+
+**Tom Warner**
+
+- Github 
+- Email 
+- Linkedin 
+
+**Yaseen Jeber**
+
+- Github 
+- Email 
+- Linkedin 
+
+Contributions, issues, and feature requests are welcome!
+
+Give a ⭐️ if you like this project!
+
+# License
+
+Copyright (c) 2023
+
+This project is MIT licensed.

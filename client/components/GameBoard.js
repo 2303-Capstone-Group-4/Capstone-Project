@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -12,6 +12,10 @@ import UserInfo from './UserInfo';
 import Box from '@mui/material/Box';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPosition } from '../store/store';
+import Tier1Info from './Tier1Info.js';
+import Tier2Info from './Tier2Info.js';
+import Tier3Info from './Tier3Info.js';
+import { setInfo1, setInfo2, setInfo3 } from '../store';
 
 const GameBoard = () => {
   const dispatch = useDispatch();
@@ -38,7 +42,8 @@ const GameBoard = () => {
     imgsrc = './images/20230907_180348.jpg';
   }
 
-  //const [health, setHealth] = useState(3);
+  const [loading, setLoading] = useState(true);
+  const [health, setHealth] = useState(3);
 
   const spaces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -56,15 +61,26 @@ const GameBoard = () => {
   };
 
   useEffect(() => {
+    dispatch(setInfo1(language));
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    dispatch(setInfo2(language));
+  }, []);
+
+  useEffect(() => {
+    dispatch(setInfo3(language));
+  }, []);
+
+  useEffect(() => {
     document.addEventListener('keydown', onKeyDown);
     return () => {
       document.removeEventListener('keydown', onKeyDown);
     };
   });
 
-  useEffect(() => {
-    dispatch(setPosition(0));
-  }, []);
+  //add state (true or false) if user is on position, render popup
 
   const gameItems = spaces.map((space) => (
     <TableCell
@@ -109,6 +125,30 @@ const GameBoard = () => {
           >
             {space}
           </Button>
+        )}
+
+        {space === 2 && position === 2 ? (
+          <modal>
+            <Tier1Info />
+          </modal>
+        ) : (
+          <p></p>
+        )}
+
+        {space === 5 && position === 5 ? (
+          <modal>
+            <Tier2Info />
+          </modal>
+        ) : (
+          <p></p>
+        )}
+
+        {space === 8 && position === 8 ? (
+          <modal>
+            <Tier3Info />
+          </modal>
+        ) : (
+          <p></p>
         )}
       </Box>
     </TableCell>

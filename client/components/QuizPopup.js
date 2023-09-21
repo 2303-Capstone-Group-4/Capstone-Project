@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import Popup from 'reactjs-popup';
 import Box from '@mui/material/Box';
@@ -31,6 +32,7 @@ const QuizPopup = () => {
   return (
     <div>
       <Box textAlign="center">
+
         <Button
           onClick={handleOpen}
           variant="contained"
