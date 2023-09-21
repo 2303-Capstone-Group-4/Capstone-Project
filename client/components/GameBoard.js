@@ -38,7 +38,6 @@ const GameBoard = () => {
   const [loading, setLoading] = useState(true);
   const [health, setHealth] = useState(3);
 
-
   const spaces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const onKeyDown = (ev) => {
@@ -77,46 +76,40 @@ const GameBoard = () => {
   //add state (true or false) if user is on position, render popup
 
   const gameItems = spaces.map((space) => (
-    <TableCell
-      id="board"
-      key={space}
-      onClick={() => console.log(space)}
-    >
+    <TableCell id="board" key={space} onClick={() => console.log(space)}>
       <Box
         sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          maxWidth: '100px',
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          maxWidth: "100px",
         }}
       >
         {space === position ? (
           <img
             src={imgsrc}
-            alt={''}
+            alt={""}
             style={{
-              width: '100%',
-              justifyContent: 'center',
-              borderRadius: '15px',
-              boxShadow: '5px 5px 5px black',
+              width: "100%",
+              justifyContent: "center",
+              borderRadius: "15px",
+              boxShadow: "5px 5px 5px black",
             }}
           />
         ) : (
           <Button
             variant="outlined"
             sx={{
-              justifyContent: 'center',
-              borderRadius: '15px',
-              background: 'white',
-              borderColor: 'black',
-              borderWidth: '3px',
-              color: 'black',
-              fontWeight: 'bold',
+              justifyContent: "center",
+              borderRadius: "15px",
+              background: "white",
+              borderColor: "black",
+              borderWidth: "3px",
+              color: "black",
+              fontWeight: "bold",
             }}
           >
-
             {space}
-
           </Button>
         )}
 
@@ -158,7 +151,11 @@ const GameBoard = () => {
           </TableBody>
         </Table>
       </TableContainer>
+
+      <hr />
+
       {position === 4 ? <QuizPopup /> : <div />}
+
     </div>
   );
 };
