@@ -1,38 +1,59 @@
-
 import * as React from 'react';
-import Popup from 'reactjs-popup';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-//import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { setInfo1 } from '../store';
 
 const QuizPopup = () => {
   const [open, setOpen] = React.useState(true);
+  const [answers, setAnswers] = React.useState({
+    question1: '',
+    question2: '',
+    question3: '',
+  });
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const { language, info1 } = useSelector((state) => state.reduxStore);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(setInfo1(language));
-  }, []);
+    console.log(answers);
+  }, [answers]);
 
-  const testAnswers = (ev) => {
+  const handleSubmit = (ev) => {
     ev.preventDefault();
+    for (let i = 0; i < 12; i++) {
+      if (ev.target.elements[i].checked === true) {
+        if (i >= 0 && i < 4) {
+          setAnswers({
+            ...answers,
+            question1: ev.target.elements[i].value,
+          });
+        } else if (i >= 4 && i < 8) {
+          setAnswers({
+            ...answers,
+            question2: ev.target.elements[i].value,
+          });
+        } else if (i >= 8 && i < 12) {
+          setAnswers({
+            ...answers,
+            question3: ev.target.elements[i].value,
+          });
+        }
+      }
+    }
+    console.log(answers);
   };
 
   return (
     <div>
       <Box textAlign="center">
-
         <Button
           onClick={handleOpen}
           variant="contained"
@@ -60,8 +81,7 @@ const QuizPopup = () => {
         >
           <form
             onSubmit={(ev) => {
-              ev.preventDefault();
-              console.log('PEE PEE POO POO');
+              handleSubmit(ev);
             }}
           >
             <FormControl>
@@ -70,7 +90,7 @@ const QuizPopup = () => {
                   <div>
                     {info1.Quiz.Questions.map((question, index) => {
                       return (
-                        <div>
+                        <div key={question}>
                           <FormLabel>{question}</FormLabel>
                           <RadioGroup>
                             {info1.Quiz.Options
@@ -95,7 +115,7 @@ const QuizPopup = () => {
                                       />
                                     );
                                   })
-                              : info1.Quiz.Questions.Options.map((option) => {
+                              : question.Options.map((option) => {
                                   return (
                                     <FormControlLabel
                                       value={option}
@@ -142,7 +162,6 @@ const QuizPopup = () => {
                               ))}
                         </RadioGroup>
                         <FormLabel>
-                          {' '}
                           {info1.Quiz.Question2.Question
                             ? info1.Quiz.Question2.Question
                             : info1.Quiz.Question2}
@@ -167,7 +186,6 @@ const QuizPopup = () => {
                               ))}
                         </RadioGroup>
                         <FormLabel>
-                          {' '}
                           {info1.Quiz.Question3.Question
                             ? info1.Quiz.Question3.Question
                             : info1.Quiz.Question3}

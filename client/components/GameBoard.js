@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
+import Modal from '@mui/material/Modal';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import QuizPopup from './QuizPopup';
@@ -22,14 +22,14 @@ const GameBoard = () => {
   const { position, character, language } = useSelector(
     (state) => state.reduxStore
   );
-  const [progress, setProgress] = useState({
-    info1: false,
-    quiz1: false,
-    info2: false,
-    quiz2: false,
-    info3: false,
-    quiz3: false,
-  });
+  // const [progress, setProgress] = useState({
+  //   info1: false,
+  //   quiz1: false,
+  //   info2: false,
+  //   quiz2: false,
+  //   info3: false,
+  //   quiz3: false,
+  // });
 
   let imgsrc = '';
   if (character === 'char1') {
@@ -62,15 +62,9 @@ const GameBoard = () => {
 
   useEffect(() => {
     dispatch(setInfo1(language));
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
     dispatch(setInfo2(language));
-  }, []);
-
-  useEffect(() => {
     dispatch(setInfo3(language));
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -86,7 +80,6 @@ const GameBoard = () => {
     <TableCell
       id="board"
       key={space}
-      onClick={() => console.log(space)}
     >
       <Box
         sx={{
@@ -128,25 +121,25 @@ const GameBoard = () => {
         )}
 
         {space === 2 && position === 2 ? (
-          <modal>
+          <Modal open={true}>
             <Tier1Info />
-          </modal>
+          </Modal>
         ) : (
           <p></p>
         )}
 
         {space === 5 && position === 5 ? (
-          <modal>
+          <Modal open={true}>
             <Tier2Info />
-          </modal>
+          </Modal>
         ) : (
           <p></p>
         )}
 
         {space === 8 && position === 8 ? (
-          <modal>
+          <Modal open={true}>
             <Tier3Info />
-          </modal>
+          </Modal>
         ) : (
           <p></p>
         )}
