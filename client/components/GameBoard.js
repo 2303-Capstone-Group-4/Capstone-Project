@@ -152,8 +152,6 @@ const GameBoard = () => {
         </Table>
       </TableContainer>
 
-      <hr />
-
       {position === 4 ? <QuizPopup /> : <div />}
 
     </div>
