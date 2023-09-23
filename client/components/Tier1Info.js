@@ -9,7 +9,7 @@ const InfoComp = (props) => {
   const { language } = useSelector((state) => state.reduxStore);
   const { info1 } = useSelector((state) => state);
 
-  console.log('HERE IS INFO1 updated:', info1);
+  // console.log('HERE IS INFO1 updated:', info1);
 
   const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(true);
