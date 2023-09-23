@@ -1,18 +1,17 @@
-
-import * as React from 'react';
-import Popup from 'reactjs-popup';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import * as React from "react";
+import Popup from "reactjs-popup";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 //import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import { motion } from 'framer-motion';
-import { useDispatch, useSelector } from 'react-redux';
-import { setInfo1 } from '../store';
+import Modal from "@mui/material/Modal";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import { motion } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
+import { setInfo1 } from "../store";
 
 const QuizPopup = () => {
   const [open, setOpen] = React.useState(true);
@@ -22,44 +21,47 @@ const QuizPopup = () => {
   const info1 = useSelector((state) => state.reduxStore.info1);
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    dispatch(setInfo1(language));
-  }, []);
+  // React.useEffect(() => {
+  //   dispatch(setInfo1(language));
+  // }, []);
 
   const testAnswers = (ev) => {
     ev.preventDefault();
-    console.log('FUCKNUTS');
+    console.log("FUCKNUTS");
   };
 
   return (
     <div>
       <Box textAlign="center">
-
-        <Button
-          onClick={handleOpen}
-          variant="contained"
-        >
+        <Button onClick={handleOpen} variant="contained">
           Re-Open Quiz Session
         </Button>
       </Box>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
+      <Modal open={open} onClose={handleClose}>
         <Box
           sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: 400,
-            bgcolor: 'background.paper',
-            border: '2px solid #000',
+            display: "flex",
+            flexDirection: "column",
+            margin: "auto",
+            flexWrap: "no-wrap",
+            mt: 10,
+            width: 500,
+            height: "80%",
+            bgcolor: "background.paper",
+            zIndex: "modal",
+            fontSize: "1rem",
+            fontWeight: "500",
+            border: "2px solid #000",
             boxShadow: 24,
-            borderRadius: '15px',
+            borderRadius: "15px",
             p: 4,
+            overflowY: "scroll",
           }}
         >
+          <div id="info-title">
+            Tier 5 Quiz<hr id="bold-hr"></hr>
+          </div>
+
           {info1?.Quiz?.Questions ? (
             <div>
               {info1.Quiz.Questions.map((question, index) => {
@@ -89,9 +91,12 @@ const QuizPopup = () => {
                             );
                           })}
                     </RadioGroup>
+                    <hr id="body-hr"></hr>
                   </FormControl>
                 );
               })}
+              <hr id="body-hr"></hr>
+
               <div>
                 <Button>Submit</Button>
               </div>
@@ -113,6 +118,8 @@ const QuizPopup = () => {
                       ))}
                     </RadioGroup>
                   </FormControl>
+                  <hr id="body-hr"></hr>
+
                   <FormControl key={2}>
                     <FormLabel>{info1.Quiz.Question2.Question}</FormLabel>
                     <RadioGroup>
@@ -126,6 +133,8 @@ const QuizPopup = () => {
                       ))}
                     </RadioGroup>
                   </FormControl>
+                  <hr id="body-hr"></hr>
+
                   <FormControl key={3}>
                     <FormLabel>{info1.Quiz.Question3.Question}</FormLabel>
                     <RadioGroup>
@@ -139,6 +148,8 @@ const QuizPopup = () => {
                       ))}
                     </RadioGroup>
                   </FormControl>
+                  <hr id="body-hr"></hr>
+
                   <div>
                     <Button type="submit">Submit</Button>
                   </div>
