@@ -58,13 +58,13 @@ const GameBoard = () => {
     setLoading(false);
   }, []);
 
-  useEffect(() => {
-    dispatch(setInfo2(language));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(setInfo2(language));
+  // }, []);
 
-  useEffect(() => {
-    dispatch(setInfo3(language));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(setInfo3(language));
+  // }, []);
 
   useEffect(() => {
     document.addEventListener("keydown", onKeyDown);
@@ -155,7 +155,6 @@ const GameBoard = () => {
       <hr />
 
       {position === 4 ? <QuizPopup /> : <div />}
-
     </div>
   );
 };

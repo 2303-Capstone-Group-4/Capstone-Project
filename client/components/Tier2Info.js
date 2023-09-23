@@ -26,34 +26,42 @@ const InfoComp2 = (props) => {
       <Modal open={open} onClose={handleClose}>
         <Box
           sx={{
-            position: "relative",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: 400,
+            display: "flex",
+            flexDirection: "column",
+            margin: "auto",
+            flexWrap: "no-wrap",
+            mt: 10,
+            width: 500,
+            height: "80%",
             bgcolor: "background.paper",
+            zIndex: "modal",
+            fontSize: "1rem",
+            fontWeight: "500",
             border: "2px solid #000",
             boxShadow: 24,
             borderRadius: "15px",
             p: 4,
+            overflowY: "scroll",
           }}
         >
           {tier1complete === false ? (
             <div id="info-title">Need to complete Quiz 1 first!</div>
           ) : (
             <div>
-              <div id="info-title">Tier 2 - Objects & Places</div>
-              <hr></hr>
+              <div id="info-title">
+                Tier 2 - Objects & Places<hr id="bold-hr"></hr>
+              </div>
               <div class="row">
                 <div class="col">
                   {"English"}
-                  <hr></hr>
+                  <hr id="body-hr"></hr>
                   {loading === false &&
                   info2?.Info?.English["0"] !== undefined ? (
                     info2.Info.English.map((word) => (
                       <ul class="list-unstyled">
                         <li>
                           <i class="fa-solid fa-globe"> </i>
+                          {` `}
                           {word}
                         </li>
                       </ul>
@@ -64,13 +72,14 @@ const InfoComp2 = (props) => {
                 </div>
                 <div class="col">
                   {language}
-                  <hr></hr>
+                  <hr id="body-hr"></hr>
                   {loading === false &&
                   info2?.Info?.English["0"] !== undefined ? (
                     info2.Info.Language.map((word) => (
                       <ul class="list-unstyled">
                         <li>
                           <i class="fa-solid fa-earth-americas"> </i>
+                          {` `}
                           {word}
                         </li>
                       </ul>
