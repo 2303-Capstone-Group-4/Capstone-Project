@@ -24,7 +24,7 @@ const Navbar = () => (
           sx={{ flexGrow: 1, display: "flex", justifyContent: "space-evenly" }}
         >
           <Link to="/" className="navlink">
-            Home
+            New Game
           </Link>
         </Typography>
       </Toolbar>

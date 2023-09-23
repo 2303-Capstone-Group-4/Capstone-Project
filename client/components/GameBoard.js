@@ -76,7 +76,7 @@ const GameBoard = () => {
   //add state (true or false) if user is on position, render popup
 
   const gameItems = spaces.map((space) => (
-    <TableCell id="board" key={space} onClick={() => console.log(space)}>
+    <TableCell id="board" key={space}>
       <Box
         sx={{
           display: "flex",
@@ -151,8 +151,6 @@ const GameBoard = () => {
           </TableBody>
         </Table>
       </TableContainer>
-
-      <hr />
 
       {position === 4 ? <QuizPopup /> : <div />}
 
