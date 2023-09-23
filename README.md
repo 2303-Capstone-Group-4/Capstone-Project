@@ -23,15 +23,15 @@ Gameboard
 
 **Tom Warner**
 
-- Github 
-- Email 
-- Linkedin 
+- Github SkAvenger13
+- Email tommwarner@gmail.com
+- Linkedin https://www.linkedin.com/in/tomwarner/
 
 **Yaseen Jeber**
 
-- Github 
-- Email 
-- Linkedin 
+- Github yaseenj96
+- Email yaseenj96@gmail.com
+- Linkedin https://www.linkedin.com/in/yaseen-jeber/
 
 Contributions, issues, and feature requests are welcome!
 
