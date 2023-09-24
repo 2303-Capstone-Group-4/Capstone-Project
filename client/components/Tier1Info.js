@@ -5,9 +5,9 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-const InfoComp = (props) => {
-  const { language } = useSelector((state) => state.reduxStore);
-  const { info1 } = useSelector((state) => state);
+const InfoComp = () => {
+  const { language, info1 } = useSelector((state) => state);
+  // const { info1 } = useSelector((state) => state);
 
   // console.log('HERE IS INFO1 updated:', info1);
 
@@ -53,8 +53,8 @@ const InfoComp = (props) => {
           <div id="info-title">
             Tier 1 - Introductory Phrases & Greetings <hr id="bold-hr"></hr>
           </div>
-          <div class="row">
-            <div class="col">
+          <div className="row">
+            <div className="col">
               {'English'}
               <hr id="body-hr"></hr>
               {loading === false && info1?.Info?.English['0'] !== undefined ? (
@@ -77,7 +77,7 @@ const InfoComp = (props) => {
               {language}
               <hr id="body-hr"></hr>
               {loading === false && info1?.Info?.English['0'] !== undefined ? (
-                info1.Info.Language.map((word) => (
+                info1.Info.Language?.map((word) => (
                   <ul
                     className="list-unstyled"
                     key={word}
@@ -100,10 +100,10 @@ const InfoComp = (props) => {
   );
 };
 
-const mapState = (state) => {
-  return {
-    info1: state.info1,
-  };
-};
+// const mapState = (state) => {
+//   return {
+//     info1: state.info1,
+//   };
+// };
 
-export default connect(mapState)(InfoComp);
+export default InfoComp;

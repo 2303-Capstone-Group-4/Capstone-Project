@@ -4,32 +4,22 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
-import Modal from '@mui/material/Modal';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import QuizPopup1 from './QuizPopup1';
-import UserInfo from './UserInfo';
+import QuizPopup2 from './QuizPopup2';
+import QuizPopup3 from './QuizPopup3';
 import Box from '@mui/material/Box';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPosition } from '../store/store';
+import { setPosition, setInfo1, setInfo2, setInfo3 } from '../store/store';
 import Tier1Info from './Tier1Info.js';
 import Tier2Info from './Tier2Info.js';
 import Tier3Info from './Tier3Info.js';
-import { setInfo1, setInfo2, setInfo3 } from '../store';
 
 const GameBoard = () => {
   const dispatch = useDispatch();
-  const { position, character, language } = useSelector(
-    (state) => state.reduxStore
-  );
-  // const [progress, setProgress] = useState({
-  //   info1: false,
-  //   quiz1: false,
-  //   info2: false,
-  //   quiz2: false,
-  //   info3: false,
-  //   quiz3: false,
-  // });
+  const { position, character, language, tier1complete, tier2complete } =
+    useSelector((state) => state);
 
   let imgsrc = '';
   if (character === 'char1') {
@@ -43,7 +33,6 @@ const GameBoard = () => {
   }
 
   const [loading, setLoading] = useState(true);
-  const [health, setHealth] = useState(3);
 
   const spaces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -62,8 +51,8 @@ const GameBoard = () => {
 
   useEffect(() => {
     dispatch(setInfo1(language));
-    dispatch(setInfo2(language));
-    dispatch(setInfo3(language));
+    setTimeout(() => dispatch(setInfo2(language)), 1000);
+    setTimeout(() => dispatch(setInfo3(language)), 2000);
     setLoading(false);
   }, []);
 
@@ -119,37 +108,12 @@ const GameBoard = () => {
             {space}
           </Button>
         )}
-
-        {space === 2 && position === 2 ? (
-          <Modal open={true}>
-            <Tier1Info />
-          </Modal>
-        ) : (
-          <p></p>
-        )}
-
-        {space === 5 && position === 5 ? (
-          <Modal open={true}>
-            <Tier2Info />
-          </Modal>
-        ) : (
-          <p></p>
-        )}
-
-        {space === 8 && position === 8 ? (
-          <Modal open={true}>
-            <Tier3Info />
-          </Modal>
-        ) : (
-          <p></p>
-        )}
       </Box>
     </TableCell>
   ));
 
   return (
     <div id="gameboard">
-      {/* <UserInfo health={health} /> */}
       <h2 id="language">Language: {language}</h2>
       <TableContainer component={Paper}>
         <Table>
@@ -158,7 +122,12 @@ const GameBoard = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      {position === 4 ? <QuizPopup1 /> : <div />}
+      {position === 2 ? <Tier1Info /> : <div />}
+      {position === 3 ? <QuizPopup1 /> : <div />}
+      {position === 5 && tier1complete ? <Tier2Info /> : <div />}
+      {position === 6 && tier1complete ? <QuizPopup2 /> : <div />}
+      {position === 8 && tier2complete ? <Tier3Info /> : <div />}
+      {position === 9 && tier2complete ? <QuizPopup3 /> : <div />}
     </div>
   );
 };

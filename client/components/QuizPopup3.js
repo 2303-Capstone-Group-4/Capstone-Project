@@ -8,9 +8,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTier1Comp } from '../store';
 
-const QuizPopup1 = () => {
+const QuizPopup3 = () => {
   const [open, setOpen] = React.useState(true);
   const [answers, setAnswers] = React.useState({
     question1: '',
@@ -20,7 +19,7 @@ const QuizPopup1 = () => {
   const [submitted, setSubmitted] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const { info1 } = useSelector((state) => state);
+  const { info3 } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -29,48 +28,44 @@ const QuizPopup1 = () => {
       answers.question2 !== '' &&
       answers.question3 !== ''
     ) {
-      if (info1.Quiz?.Answers) {
+      if (info3.Quiz?.Answers) {
         if (
-          answers.question1 === info1.Quiz.Answers[0] &&
-          answers.question2 === info1.Quiz.Answers[1] &&
-          answers.question3 === info1.Quiz.Answers[2]
+          answers.question1 === info3.Quiz.Answers[0] &&
+          answers.question2 === info3.Quiz.Answers[1] &&
+          answers.question3 === info3.Quiz.Answers[2]
         ) {
           console.log('Correct, bitch!');
-          dispatch(setTier1Comp(true));
         } else {
           console.log('YOU WRONG, BITCH!');
         }
-      } else if (info1.Quiz?.Question1) {
-        if (info1.Quiz.Question1.Answer) {
+      } else if (info3.Quiz?.Question1) {
+        if (info3.Quiz.Question1.Answer) {
           if (
-            answers.question1 === info1.Quiz.Question1.Answer &&
-            answers.question2 === info1.Quiz.Question2.Answer &&
-            answers.question3 === info1.Quiz.Question3.Answer
+            answers.question1 === info3.Quiz.Question1.Answer &&
+            answers.question2 === info3.Quiz.Question2.Answer &&
+            answers.question3 === info3.Quiz.Question3.Answer
           ) {
             console.log('Correct, bitch!');
-            dispatch(setTier1Comp(true));
           } else {
             console.log('YOU WRONG, BITCH!');
           }
-        } else if (info1.Quiz?.Answer1) {
+        } else if (info3.Quiz?.Answer1) {
           if (
-            answers.question1 === info1.Quiz.Answer1 &&
-            answers.question2 === info1.Quiz.Answer2 &&
-            answers.question3 === info1.Quiz.Answer3
+            answers.question1 === info3.Quiz.Answer1 &&
+            answers.question2 === info3.Quiz.Answer2 &&
+            answers.question3 === info3.Quiz.Answer3
           ) {
             console.log('Correct, bitch!');
-            dispatch(setTier1Comp(true));
           } else {
             console.log('YOU WRONG, BITCH!');
           }
-        } else if (typeof info1.Quiz?.Questions[0]) {
+        } else if (typeof info3.Quiz?.Questions[0]) {
           if (
-            answers.question1 === info1.Quiz.Questions[0].Answer &&
-            answers.question2 === info1.Quiz.Questions[1].Answer &&
-            answers.question3 === info1.Quiz.Questions[2].Answer
+            answers.question1 === info3.Quiz.Questions[0].Answer &&
+            answers.question2 === info3.Quiz.Questions[1].Answer &&
+            answers.question3 === info3.Quiz.Questions[2].Answer
           ) {
             console.log('Correct, bitch!');
-            dispatch(setTier1Comp(true));
           } else {
             console.log('YOU WRONG, BITCH!');
           }
@@ -82,11 +77,11 @@ const QuizPopup1 = () => {
   }, [submitted]);
 
   const updateAnswers = (ev) => {
-    if (ev.target.name === ':r0:') {
+    if (ev.target.name === ':r6:') {
       setAnswers({ ...answers, question1: ev.target.value });
-    } else if (ev.target.name === ':r1:') {
+    } else if (ev.target.name === ':r7:') {
       setAnswers({ ...answers, question2: ev.target.value });
-    } else if (ev.target.name === ':r2:') {
+    } else if (ev.target.name === ':r8:') {
       setAnswers({ ...answers, question3: ev.target.value });
     }
   };
@@ -98,7 +93,7 @@ const QuizPopup1 = () => {
           onClick={handleOpen}
           variant="contained"
         >
-          Re-Open Quiz 1
+          Re-Open Quiz 3
         </Button>
       </Box>
       <Modal
@@ -129,18 +124,18 @@ const QuizPopup1 = () => {
           >
             <FormControl>
               <div>
-                {info1?.Quiz?.Questions ? (
+                {info3?.Quiz?.Questions ? (
                   <div>
-                    {info1.Quiz.Questions.map((question, index) => {
+                    {info3.Quiz.Questions.map((question, index) => {
                       return (
                         <div key={index}>
                           <FormLabel>
                             {question.Question ? question.Question : question}
                           </FormLabel>
                           <RadioGroup>
-                            {info1.Quiz.Options
-                              ? info1.Quiz.Options[index]
-                                ? info1.Quiz.Options[index].map((option) => {
+                            {info3.Quiz.Options
+                              ? info3.Quiz.Options[index]
+                                ? info3.Quiz.Options[index].map((option) => {
                                     return (
                                       <FormControlLabel
                                         value={option}
@@ -154,7 +149,7 @@ const QuizPopup1 = () => {
                                       />
                                     );
                                   })
-                                : info1.Quiz.Options.map((option) => {
+                                : info3.Quiz.Options.map((option) => {
                                     return (
                                       <FormControlLabel
                                         value={option}
@@ -192,16 +187,16 @@ const QuizPopup1 = () => {
                   </div>
                 ) : (
                   <div>
-                    {info1?.Quiz?.Question1 ? (
+                    {info3?.Quiz?.Question1 ? (
                       <div>
                         <FormLabel>
-                          {info1.Quiz.Question1.Question
-                            ? info1.Quiz.Question1.Question
-                            : info1.Quiz.Question1}
+                          {info3.Quiz.Question1.Question
+                            ? info3.Quiz.Question1.Question
+                            : info3.Quiz.Question1}
                         </FormLabel>
                         <RadioGroup>
-                          {info1.Quiz.Question1.Options
-                            ? info1.Quiz.Question1.Options.map(
+                          {info3.Quiz.Question1.Options
+                            ? info3.Quiz.Question1.Options.map(
                                 (option, index2) => (
                                   <FormControlLabel
                                     value={option}
@@ -216,7 +211,7 @@ const QuizPopup1 = () => {
                                   />
                                 )
                               )
-                            : info1.Quiz.Options1.map((option, index2) => (
+                            : info3.Quiz.Options1.map((option, index2) => (
                                 <FormControlLabel
                                   value={option}
                                   control={
@@ -231,13 +226,13 @@ const QuizPopup1 = () => {
                               ))}
                         </RadioGroup>
                         <FormLabel>
-                          {info1.Quiz.Question2.Question
-                            ? info1.Quiz.Question2.Question
-                            : info1.Quiz.Question2}
+                          {info3.Quiz.Question2.Question
+                            ? info3.Quiz.Question2.Question
+                            : info3.Quiz.Question2}
                         </FormLabel>
                         <RadioGroup>
-                          {info1.Quiz.Question2.Options
-                            ? info1.Quiz.Question2.Options.map(
+                          {info3.Quiz.Question2.Options
+                            ? info3.Quiz.Question2.Options.map(
                                 (option, index2) => (
                                   <FormControlLabel
                                     value={option}
@@ -252,7 +247,7 @@ const QuizPopup1 = () => {
                                   />
                                 )
                               )
-                            : info1.Quiz.Options2.map((option, index2) => (
+                            : info3.Quiz.Options2.map((option, index2) => (
                                 <FormControlLabel
                                   value={option}
                                   control={
@@ -267,13 +262,13 @@ const QuizPopup1 = () => {
                               ))}
                         </RadioGroup>
                         <FormLabel>
-                          {info1.Quiz.Question3.Question
-                            ? info1.Quiz.Question3.Question
-                            : info1.Quiz.Question3}
+                          {info3.Quiz.Question3.Question
+                            ? info3.Quiz.Question3.Question
+                            : info3.Quiz.Question3}
                         </FormLabel>
                         <RadioGroup>
-                          {info1.Quiz.Question3.Options
-                            ? info1.Quiz.Question3.Options.map(
+                          {info3.Quiz.Question3.Options
+                            ? info3.Quiz.Question3.Options.map(
                                 (option, index2) => (
                                   <FormControlLabel
                                     value={option}
@@ -288,7 +283,7 @@ const QuizPopup1 = () => {
                                   />
                                 )
                               )
-                            : info1.Quiz.Options3.map((option, index2) => (
+                            : info3.Quiz.Options3.map((option, index2) => (
                                 <FormControlLabel
                                   value={option}
                                   control={
@@ -320,4 +315,4 @@ const QuizPopup1 = () => {
   );
 };
 
-export default QuizPopup1;
+export default QuizPopup3;
