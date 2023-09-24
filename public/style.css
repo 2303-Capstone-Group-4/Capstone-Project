@@ -141,6 +141,8 @@ nav a {
 #gameboard {
   padding-top: 100px;
   background-image: url("./images/Forest_Background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #cccccc;
   height: 100%;
 }
