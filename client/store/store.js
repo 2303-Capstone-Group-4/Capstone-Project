@@ -1,12 +1,14 @@
-import axios from "axios";
+import axios from 'axios';
 
-const SET_POSITION = "SET_POSITION";
-const SET_LANGUAGE = "SET_LANGUAGE";
-const SET_CHARACTER = "SET_CHARACTER";
-const FETCH_STORE = "FETCH_STORE";
-const SET_INFO1 = "SET_INFO1";
-const SET_TIER1_COMPLETE = "SET_TIER1_COMPLETE";
-const SET_TIER2_COMPLETE = "SET_INFO1_COMPLETE";
+const SET_POSITION = 'SET_POSITION';
+const SET_LANGUAGE = 'SET_LANGUAGE';
+const SET_CHARACTER = 'SET_CHARACTER';
+const FETCH_STORE = 'FETCH_STORE';
+const SET_INFO1 = 'SET_INFO1';
+const SET_INFO2 = 'SET_INFO2';
+const SET_INFO3 = 'SET_INFO3';
+const SET_TIER1_COMPLETE = 'SET_TIER1_COMPLETE';
+const SET_TIER2_COMPLETE = 'SET_TIER2_COMPLETE';
 
 export const setPosition = (position) => {
   return {
@@ -43,13 +45,33 @@ export const setTier2Comp = (tier2complete) => {
   };
 };
 
-export const setInfo1 = async (language) => {
-  const response = await axios.get("/api/tier1", {
-    params: { language },
-  });
-  return {
-    type: SET_INFO1,
-    info1: response.data,
+export const setInfo1 = (language) => {
+  return async (dispatch) => {
+    const response = await axios.get('/api/tier1', {
+      params: { language },
+    });
+
+    dispatch({ type: SET_INFO1, info1: response.data });
+  };
+};
+
+export const setInfo2 = (language) => {
+  return async (dispatch) => {
+    const response = await axios.get('/api/tier2', {
+      params: { language },
+    });
+
+    dispatch({ type: SET_INFO2, info2: response.data });
+  };
+};
+
+export const setInfo3 = (language) => {
+  return async (dispatch) => {
+    const response = await axios.get('/api/tier3', {
+      params: { language },
+    });
+
+    dispatch({ type: SET_INFO3, info3: response.data });
   };
 };
 
@@ -61,8 +83,8 @@ export const fetchStore = () => {
 
 const initialState = {
   position: 0,
-  language: "Spanish",
-  character: "char1",
+  language: 'Spanish',
+  character: 'char1',
   info1: {},
   info2: {},
   info3: {},
@@ -91,6 +113,16 @@ const reduxStore = (state = initialState, action) => {
       return {
         ...state,
         info1: action.info1,
+      };
+    case SET_INFO2:
+      return {
+        ...state,
+        info2: action.info2,
+      };
+    case SET_INFO3:
+      return {
+        ...state,
+        info3: action.info3,
       };
     case SET_TIER1_COMPLETE:
       return {
