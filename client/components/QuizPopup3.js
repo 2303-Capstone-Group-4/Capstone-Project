@@ -1,20 +1,20 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import { useDispatch, useSelector } from 'react-redux';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import { useDispatch, useSelector } from "react-redux";
 
 const QuizPopup3 = () => {
   const [open, setOpen] = React.useState(true);
   const [answers, setAnswers] = React.useState({
-    question1: '',
-    question2: '',
-    question3: '',
+    question1: "",
+    question2: "",
+    question3: "",
   });
   const [submitted, setSubmitted] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -24,9 +24,9 @@ const QuizPopup3 = () => {
 
   React.useEffect(() => {
     if (
-      answers.question1 !== '' &&
-      answers.question2 !== '' &&
-      answers.question3 !== ''
+      answers.question1 !== "" &&
+      answers.question2 !== "" &&
+      answers.question3 !== ""
     ) {
       if (info3.Quiz?.Answers) {
         if (
@@ -34,9 +34,9 @@ const QuizPopup3 = () => {
           answers.question2 === info3.Quiz.Answers[1] &&
           answers.question3 === info3.Quiz.Answers[2]
         ) {
-          console.log('Correct, bitch!');
+          console.log("Correct, !");
         } else {
-          console.log('YOU WRONG, BITCH!');
+          console.log("YOU WRONG, !");
         }
       } else if (info3.Quiz?.Question1) {
         if (info3.Quiz.Question1.Answer) {
@@ -45,9 +45,9 @@ const QuizPopup3 = () => {
             answers.question2 === info3.Quiz.Question2.Answer &&
             answers.question3 === info3.Quiz.Question3.Answer
           ) {
-            console.log('Correct, bitch!');
+            console.log("Correct, !");
           } else {
-            console.log('YOU WRONG, BITCH!');
+            console.log("YOU WRONG, !");
           }
         } else if (info3.Quiz?.Answer1) {
           if (
@@ -55,9 +55,9 @@ const QuizPopup3 = () => {
             answers.question2 === info3.Quiz.Answer2 &&
             answers.question3 === info3.Quiz.Answer3
           ) {
-            console.log('Correct, bitch!');
+            console.log("Correct, !");
           } else {
-            console.log('YOU WRONG, BITCH!');
+            console.log("YOU WRONG, !");
           }
         } else if (typeof info3.Quiz?.Questions[0]) {
           if (
@@ -65,23 +65,23 @@ const QuizPopup3 = () => {
             answers.question2 === info3.Quiz.Questions[1].Answer &&
             answers.question3 === info3.Quiz.Questions[2].Answer
           ) {
-            console.log('Correct, bitch!');
+            console.log("Correct, !");
           } else {
-            console.log('YOU WRONG, BITCH!');
+            console.log("YOU WRONG, !");
           }
         }
       }
     } else {
-      console.log('Complete the quiz, BITCH');
+      console.log("Complete the quiz, ");
     }
   }, [submitted]);
 
   const updateAnswers = (ev) => {
-    if (ev.target.name === ':r6:') {
+    if (ev.target.name === ":r6:") {
       setAnswers({ ...answers, question1: ev.target.value });
-    } else if (ev.target.name === ':r7:') {
+    } else if (ev.target.name === ":r7:") {
       setAnswers({ ...answers, question2: ev.target.value });
-    } else if (ev.target.name === ':r8:') {
+    } else if (ev.target.name === ":r8:") {
       setAnswers({ ...answers, question3: ev.target.value });
     }
   };
@@ -89,29 +89,30 @@ const QuizPopup3 = () => {
   return (
     <div>
       <Box textAlign="center">
-        <Button
-          onClick={handleOpen}
-          variant="contained"
-        >
+        <Button onClick={handleOpen} variant="contained">
           Re-Open Quiz 3
         </Button>
       </Box>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
+      <Modal open={open} onClose={handleClose}>
         <Box
           sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: 400,
-            bgcolor: 'background.paper',
-            border: '2px solid #000',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            margin: "auto",
+            flexWrap: "no-wrap",
+            mt: 10,
+            width: 500,
+            height: "80%",
+            bgcolor: "background.paper",
+            zIndex: "modal",
+            fontSize: "1rem",
+            fontWeight: "500",
+            border: "2px solid #000",
             boxShadow: 24,
-            borderRadius: '15px',
+            borderRadius: "15px",
             p: 4,
+            overflowY: "scroll",
           }}
         >
           <form
@@ -124,8 +125,13 @@ const QuizPopup3 = () => {
           >
             <FormControl>
               <div>
+                <div id="info-title">
+                  Tier 3 Quiz <hr id="bold-hr"></hr>
+                </div>
                 {info3?.Quiz?.Questions ? (
                   <div>
+                    <hr id="body-hr"></hr>
+
                     {info3.Quiz.Questions.map((question, index) => {
                       return (
                         <div key={index}>
@@ -182,11 +188,15 @@ const QuizPopup3 = () => {
                       );
                     })}
                     <div>
+                      <hr id="body-hr"></hr>
+
                       <button type="submit">Submit</button>
                     </div>
                   </div>
                 ) : (
                   <div>
+                    <hr id="body-hr"></hr>
+
                     {info3?.Quiz?.Question1 ? (
                       <div>
                         <FormLabel>
@@ -298,6 +308,8 @@ const QuizPopup3 = () => {
                               ))}
                         </RadioGroup>
                         <div>
+                          <hr id="body-hr"></hr>
+
                           <button type="submit">Submit</button>
                         </div>
                       </div>
