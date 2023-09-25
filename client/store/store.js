@@ -83,7 +83,7 @@ export const fetchStore = () => {
 
 const initialState = {
   position: 0,
-  language: 'Spanish',
+  language: '',
   character: 'char1',
   info1: {},
   info2: {},

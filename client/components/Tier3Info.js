@@ -5,7 +5,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-const InfoComp3 = (props) => {
+const InfoComp3 = () => {
   const { language, tier2complete, info3 } = useSelector((state) => state);
   // const { info3 } = useSelector((state) => state);
 
@@ -87,7 +87,7 @@ const InfoComp3 = (props) => {
                     info3.Info.Language.map((word) => (
                       <ul className="list-unstyled">
                         <li>
-                          <i class="fa-solid fa-earth-americas"> </i>
+                          <i className="fa-solid fa-earth-americas"> </i>
                           {word}
                           {` `}
                         </li>
@@ -107,10 +107,10 @@ const InfoComp3 = (props) => {
   );
 };
 
-const mapState = (state) => {
-  return {
-    info3: state.info3,
-  };
-};
+// const mapState = (state) => {
+//   return {
+//     info3: state.info3,
+//   };
+// };
 
-export default connect(mapState)(InfoComp3);
+export default InfoComp3;
