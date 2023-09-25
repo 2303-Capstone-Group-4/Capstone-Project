@@ -14,7 +14,8 @@ const LandingPage = () => {
   });
   const dispatch = useDispatch();
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+
   const changeRoute = () => {
     if (
       !selectedChar.char1 &&
