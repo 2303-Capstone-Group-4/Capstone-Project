@@ -15,7 +15,7 @@ const VictoryPage = () => {
 
   // tsParticles.load('tsparticles', {
   //   fullScreen: {
-  //     zIndex: 999,
+  //     zIndex: 1,
   //   },
   //   particles: {
   //     color: {
