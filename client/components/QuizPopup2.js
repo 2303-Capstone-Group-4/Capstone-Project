@@ -101,14 +101,6 @@ const QuizPopup2 = () => {
 
   return (
     <div>
-      <Box textAlign="center">
-        <Button
-          onClick={handleOpen}
-          variant="contained"
-        >
-          Re-Open Quiz 2
-        </Button>
-      </Box>
       <Modal
         open={open}
         onClose={handleClose}
