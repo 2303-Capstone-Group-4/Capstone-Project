@@ -24,17 +24,12 @@ const QuizPopup1 = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    console.log('HERE IS USE EFFECT being called');
-    console.log('Here are the answers', answers);
-    console.log('Here is info1', info1);
-
     if (
       answers.question1 !== '' &&
       answers.question2 !== '' &&
       answers.question3 !== ''
     ) {
       if (info1.Quiz?.Answers) {
-        console.log('First if statement');
         if (
           answers.question1 === info1.Quiz.Answers[0] &&
           answers.question2 === info1.Quiz.Answers[1] &&
@@ -48,8 +43,6 @@ const QuizPopup1 = () => {
         }
       } else if (info1.Quiz?.Question1) {
         if (info1.Quiz.Question1.Answer) {
-          console.log('Second if statement');
-
           if (
             answers.question1 === info1.Quiz.Question1.Answer &&
             answers.question2 === info1.Quiz.Question2.Answer &&
@@ -62,8 +55,6 @@ const QuizPopup1 = () => {
             alert('Incorrect, you must try again!');
           }
         } else if (info1.Quiz?.Answer1) {
-          console.log('Third if statement');
-
           if (
             answers.question1 === info1.Quiz.Answer1 &&
             answers.question2 === info1.Quiz.Answer2 &&
@@ -77,7 +68,6 @@ const QuizPopup1 = () => {
           }
         }
       } else if (info1.Quiz?.Questions[0].Answer) {
-        console.log('test');
         if (
           answers.question1 === info1.Quiz.Questions[0].Answer &&
           answers.question2 === info1.Quiz.Questions[1].Answer &&
@@ -111,14 +101,14 @@ const QuizPopup1 = () => {
 
   return (
     <div>
-      <Box textAlign="center">
+      {/* <Box textAlign="center">
         <Button
           onClick={handleOpen}
           variant="contained"
         >
           Re-Open Quiz 1
         </Button>
-      </Box>
+      </Box> */}
       <Modal
         open={open}
         onClose={handleClose}
@@ -147,10 +137,6 @@ const QuizPopup1 = () => {
           <form
             onSubmit={(ev) => {
               ev.preventDefault();
-              console.log(
-                'BUTTON SUBMIT HAS BEEN CLICKED, here is submit:',
-                submitted
-              );
               if (submitted) {
                 setSubmitted(false);
               } else setSubmitted(true);
