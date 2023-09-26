@@ -13,7 +13,6 @@ const openai = new OpenAI({
 router.get('/', async (req, res, next) => {
   try {
     const language = req.query.language;
-    console.log(language);
     const response = await openai.chat.completions.create({
       model: 'gpt-4',
       messages: [

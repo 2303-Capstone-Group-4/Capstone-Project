@@ -53,6 +53,7 @@ const GameBoard = () => {
   };
 
   useEffect(() => {
+    setPosition(0);
     if (language === '') {
       navigate('/');
     } else {
@@ -73,6 +74,7 @@ const GameBoard = () => {
     <TableCell
       id="board"
       key={space}
+      sx={{ borderBottom: 'none' }}
     >
       <Box
         sx={{
@@ -120,7 +122,11 @@ const GameBoard = () => {
       <h2 id="language">Language: {language}</h2>
       <TableContainer
         component={Paper}
-        sx={{ mt: 20 }}
+        sx={{
+          mt: 20,
+          backgroundImage: 'radial-gradient(rgba(0,0,0,.4), rgba(0,0,0,0.2))',
+          backgroundColor: 'rgba(0,0,0,0)',
+        }}
       >
         <Table>
           <TableBody>

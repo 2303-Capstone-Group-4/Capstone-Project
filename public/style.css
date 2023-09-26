@@ -75,8 +75,9 @@ nav a {
 
 #home-page {
   padding-top: 20px;
-  background-image: url("./images/Forest_Background.png");
-  background-color: #cccccc;
+  background-image: url('./images/Forest_Background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100%;
 }
 
@@ -102,12 +103,16 @@ nav a {
   text-align: center;
   position: relative;
   top: 75px;
+  font-weight: bold;
+  color: black;
 }
 
 #character-selector {
   position: relative;
   top: 100px;
   text-align: center;
+  font-weight: bold;
+  color: black;
 }
 
 #char-images {
@@ -140,7 +145,7 @@ nav a {
 
 #gameboard {
   padding-top: 100px;
-  background-image: url("./images/Forest_Background.png");
+  background-image: url('./images/Forest_Background.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #cccccc;
@@ -240,12 +245,12 @@ nav a {
 }
 
 #board {
-  background-image: url("./images/Forest_Background.png");
-  background-color: #cccccc;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 td {
   width: 10%;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 tr {
@@ -253,8 +258,13 @@ tr {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 #language {
   text-align: center;
+}
+
+table {
+  background-color: rgba(0, 0, 0, 0);
 }
