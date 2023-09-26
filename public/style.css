@@ -102,12 +102,14 @@ nav a {
   text-align: center;
   position: relative;
   top: 75px;
+  color: white;
 }
 
 #character-selector {
   position: relative;
   top: 100px;
   text-align: center;
+  color: white;
 }
 
 #char-images {
@@ -257,4 +259,5 @@ tr {
 
 #language {
   text-align: center;
+  color: white;
 }
