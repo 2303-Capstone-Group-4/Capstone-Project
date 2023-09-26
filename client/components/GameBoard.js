@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -6,16 +8,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 import QuizPopup1 from './QuizPopup1';
 import QuizPopup2 from './QuizPopup2';
 import QuizPopup3 from './QuizPopup3';
-import Box from '@mui/material/Box';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { setPosition, setInfo1, setInfo2, setInfo3 } from '../store/store';
 import Tier1Info from './Tier1Info.js';
 import Tier2Info from './Tier2Info.js';
 import Tier3Info from './Tier3Info.js';
+import { setPosition, setInfo1, setInfo2, setInfo3 } from '../store/store';
 
 const GameBoard = () => {
   const dispatch = useDispatch();
@@ -34,8 +34,6 @@ const GameBoard = () => {
     imgsrc = './images/20230907_180348.jpg';
   }
 
-  const [loading, setLoading] = useState(true);
-
   const spaces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const onKeyDown = (ev) => {
@@ -43,8 +41,7 @@ const GameBoard = () => {
       if (position > 0) {
         dispatch(setPosition(position - 1));
       }
-    }
-    if (ev.code === 'ArrowRight') {
+    } else if (ev.code === 'ArrowRight') {
       if (position === 4 && tier1complete === false) {
         alert('Complete the first quiz before proceeding further!');
       } else if (position === 7 && tier2complete === false) {
@@ -62,7 +59,6 @@ const GameBoard = () => {
       dispatch(setInfo1(language));
       setTimeout(() => dispatch(setInfo2(language)), 1000);
       setTimeout(() => dispatch(setInfo3(language)), 2000);
-      setLoading(false);
     }
   }, []);
 
@@ -72,8 +68,6 @@ const GameBoard = () => {
       document.removeEventListener('keydown', onKeyDown);
     };
   });
-
-  //add state (true or false) if user is on position, render popup
 
   const gameItems = spaces.map((space) => (
     <TableCell
@@ -107,7 +101,6 @@ const GameBoard = () => {
             sx={{
               justifyContent: 'center',
               borderRadius: '15px',
-              // background: 'white',
               borderColor: 'black',
               borderWidth: '3px',
               color: 'black',
@@ -117,17 +110,6 @@ const GameBoard = () => {
           >
             <i className="fa-regular fa-chess-knight fa-3x"></i>
           </Button>
-          // <img
-          //   src={"./images/Monster.png"}
-          //   alt={""}
-          //   style={{
-          //     width: "100%",
-          //     justifyContent: "center",
-          //     borderRadius: "15px",
-          //     minHeight: "40.5px",
-          //     minWidth: "40.5px",
-          //   }}
-          // />
         )}
       </Box>
     </TableCell>

@@ -7,7 +7,6 @@ import WrongPage from './components/WrongPage';
 import Tier1Info from './components/Tier1Info';
 import Tier2Info from './components/Tier2Info';
 import Tier3Info from './components/Tier3Info';
-import VictoryPage from './components/VictoryPage';
 
 const App = () => {
   return (
@@ -37,10 +36,6 @@ const App = () => {
         <Route
           path="/Tier3Info"
           element={<Tier3Info />}
-        />
-        <Route
-          path="/VictoryPage"
-          element={<VictoryPage />}
         />
       </Routes>
     </div>
