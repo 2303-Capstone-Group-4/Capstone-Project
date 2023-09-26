@@ -85,11 +85,17 @@ const QuizPopup3 = () => {
   }, [submitted]);
 
   const updateAnswers = (ev) => {
-    if (ev.target.name === ':r6:') {
+    if (ev.target.name === ':r0:' || parseInt(ev.target.name[2]) % 3 === 0) {
       setAnswers({ ...answers, question1: ev.target.value });
-    } else if (ev.target.name === ':r7:') {
+    } else if (
+      ev.target.name === ':r1:' ||
+      (parseInt(ev.target.name[2]) - 1) % 3 === 0
+    ) {
       setAnswers({ ...answers, question2: ev.target.value });
-    } else if (ev.target.name === ':r8:') {
+    } else if (
+      ev.target.name === ':r2:' ||
+      (parseInt(ev.target.name[2]) - 2) % 3 === 0
+    ) {
       setAnswers({ ...answers, question3: ev.target.value });
     }
   };
