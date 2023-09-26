@@ -74,6 +74,7 @@ const GameBoard = () => {
     <TableCell
       id="board"
       key={space}
+      sx={{ borderBottom: 'none' }}
     >
       <Box
         sx={{
