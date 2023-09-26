@@ -7,15 +7,11 @@ import Button from '@mui/material/Button';
 
 const InfoComp3 = () => {
   const { language, tier2complete, info3 } = useSelector((state) => state);
-  // const { info3 } = useSelector((state) => state);
-
-  // console.log("HERE IS INFO3 updated:", info3);
 
   const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const loading = false;
   return (
     <div>
       <Box textAlign="center">
@@ -61,8 +57,7 @@ const InfoComp3 = () => {
                 <div className="col">
                   {'English'}
                   <hr id="body-hr"></hr>
-                  {loading === false &&
-                  info3?.Info?.English['0'] !== undefined ? (
+                  {info3?.Info?.English['0'] !== undefined ? (
                     info3.Info.English.map((word) => (
                       <ul
                         className="list-unstyled"
@@ -82,10 +77,12 @@ const InfoComp3 = () => {
                 <div className="col">
                   {language}
                   <hr id="body-hr"></hr>
-                  {loading === false &&
-                  info3?.Info?.English['0'] !== undefined ? (
+                  {info3?.Info?.English['0'] !== undefined ? (
                     info3.Info.Language.map((word) => (
-                      <ul className="list-unstyled">
+                      <ul
+                        className="list-unstyled"
+                        key={word}
+                      >
                         <li>
                           <i className="fa-solid fa-earth-americas"> </i>
                           {word}
@@ -106,11 +103,5 @@ const InfoComp3 = () => {
     </div>
   );
 };
-
-// const mapState = (state) => {
-//   return {
-//     info3: state.info3,
-//   };
-// };
 
 export default InfoComp3;

@@ -7,15 +7,11 @@ import Button from '@mui/material/Button';
 
 const InfoComp2 = () => {
   const { language, tier1complete, info2 } = useSelector((state) => state);
-  // const { info2 } = useSelector((state) => state);
-
-  // console.log("HERE IS INFO2 updated:", info2);
 
   const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const loading = false;
   return (
     <div>
       <Box textAlign="center">
@@ -61,10 +57,12 @@ const InfoComp2 = () => {
                 <div className="col">
                   {'English'}
                   <hr id="body-hr"></hr>
-                  {loading === false &&
-                  info2?.Info?.English['0'] !== undefined ? (
+                  {info2?.Info?.English['0'] !== undefined ? (
                     info2.Info.English.map((word) => (
-                      <ul className="list-unstyled">
+                      <ul
+                        className="list-unstyled"
+                        key={word}
+                      >
                         <li>
                           <i className="fa-solid fa-globe"> </i>
                           {` `}
@@ -79,8 +77,7 @@ const InfoComp2 = () => {
                 <div className="col">
                   {language}
                   <hr id="body-hr"></hr>
-                  {loading === false &&
-                  info2?.Info?.English['0'] !== undefined ? (
+                  {info2?.Info?.English['0'] !== undefined ? (
                     info2.Info.Language?.map((word) => (
                       <ul
                         className="list-unstyled"
@@ -106,11 +103,5 @@ const InfoComp2 = () => {
     </div>
   );
 };
-
-// const mapState = (state) => {
-//   return {
-//     info2: state.info2,
-//   };
-// };
 
 export default InfoComp2;

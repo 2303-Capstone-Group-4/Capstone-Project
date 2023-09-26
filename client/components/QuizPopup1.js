@@ -66,18 +66,19 @@ const QuizPopup1 = () => {
           } else {
             alert('Incorrect, you must try again!');
           }
-        } else if (info1.Quiz?.Questions[0]) {
-          if (
-            answers.question1 === info1.Quiz.Questions[0].Answer &&
-            answers.question2 === info1.Quiz.Questions[1].Answer &&
-            answers.question3 === info1.Quiz.Questions[2].Answer
-          ) {
-            alert('Correct, you may now proceed!');
-            handleClose();
-            dispatch(setTier1Comp(true));
-          } else {
-            alert('Incorrect, you must try again!');
-          }
+        }
+      } else if (info1.Quiz?.Questions[0].Answer) {
+        console.log('test');
+        if (
+          answers.question1 === info1.Quiz.Questions[0].Answer &&
+          answers.question2 === info1.Quiz.Questions[1].Answer &&
+          answers.question3 === info1.Quiz.Questions[2].Answer
+        ) {
+          alert('Correct, you may now proceed!');
+          handleClose();
+          dispatch(setTier1Comp(true));
+        } else {
+          alert('Incorrect, you must try again!');
         }
       }
     }
