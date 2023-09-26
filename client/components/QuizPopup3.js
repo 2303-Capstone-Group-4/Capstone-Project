@@ -25,9 +25,6 @@ const QuizPopup3 = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    console.log('HERE IS USE EFFECT being called');
-    console.log('Here are the answers', answers);
-    console.log('Here is info3', info3);
     if (
       answers.question1 !== '' &&
       answers.question2 !== '' &&
@@ -89,7 +86,6 @@ const QuizPopup3 = () => {
   }, [submitted]);
 
   const updateAnswers = (ev) => {
-    console.log('Update answers is being called here', ev.target.name);
     if (ev.target.name === ':r0:' || parseInt(ev.target.name[2]) % 3 === 0) {
       setAnswers({ ...answers, question1: ev.target.value });
     } else if (
@@ -135,7 +131,6 @@ const QuizPopup3 = () => {
           <form
             onSubmit={(ev) => {
               ev.preventDefault();
-              console.log('SUBMIT CLICKED', submitted);
               if (submitted) {
                 setSubmitted(false);
               } else setSubmitted(true);
