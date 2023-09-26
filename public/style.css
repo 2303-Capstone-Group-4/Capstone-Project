@@ -103,16 +103,17 @@ nav a {
   text-align: center;
   position: relative;
   top: 75px;
+  color: white;
   font-weight: bold;
-  color: black;
+
 }
 
 #character-selector {
   position: relative;
   top: 100px;
   text-align: center;
+  color: white;
   font-weight: bold;
-  color: black;
 }
 
 #char-images {
@@ -263,6 +264,7 @@ tr {
 
 #language {
   text-align: center;
+  color: white;
 }
 
 table {
