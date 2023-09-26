@@ -25,6 +25,9 @@ const QuizPopup3 = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
+    console.log('HERE IS USE EFFECT being called');
+    console.log('Here are the answers', answers);
+    console.log('Here is info3', info3);
     if (
       answers.question1 !== '' &&
       answers.question2 !== '' &&
@@ -86,6 +89,7 @@ const QuizPopup3 = () => {
   }, [submitted]);
 
   const updateAnswers = (ev) => {
+    console.log('Update answers is being called here', ev.target.name);
     if (ev.target.name === ':r0:' || parseInt(ev.target.name[2]) % 3 === 0) {
       setAnswers({ ...answers, question1: ev.target.value });
     } else if (
@@ -131,6 +135,7 @@ const QuizPopup3 = () => {
           <form
             onSubmit={(ev) => {
               ev.preventDefault();
+              console.log('SUBMIT CLICKED', submitted);
               if (submitted) {
                 setSubmitted(false);
               } else setSubmitted(true);
@@ -151,7 +156,7 @@ const QuizPopup3 = () => {
                           <FormLabel>
                             {question.Question ? question.Question : question}
                           </FormLabel>
-                          <RadioGroup>
+                          <RadioGroup name={`:r${index}:`}>
                             {info3.Quiz.Options
                               ? info3.Quiz.Options[index]
                                 ? info3.Quiz.Options[index].map((option) => {
@@ -217,7 +222,7 @@ const QuizPopup3 = () => {
                             ? info3.Quiz.Question1.Question
                             : info3.Quiz.Question1}
                         </FormLabel>
-                        <RadioGroup>
+                        <RadioGroup name=":r0:">
                           {info3.Quiz.Question1.Options
                             ? info3.Quiz.Question1.Options.map(
                                 (option, index2) => (
@@ -253,7 +258,7 @@ const QuizPopup3 = () => {
                             ? info3.Quiz.Question2.Question
                             : info3.Quiz.Question2}
                         </FormLabel>
-                        <RadioGroup>
+                        <RadioGroup name=":r1:">
                           {info3.Quiz.Question2.Options
                             ? info3.Quiz.Question2.Options.map(
                                 (option, index2) => (
@@ -289,7 +294,7 @@ const QuizPopup3 = () => {
                             ? info3.Quiz.Question3.Question
                             : info3.Quiz.Question3}
                         </FormLabel>
-                        <RadioGroup>
+                        <RadioGroup name=":r2:">
                           {info3.Quiz.Question3.Options
                             ? info3.Quiz.Question3.Options.map(
                                 (option, index2) => (

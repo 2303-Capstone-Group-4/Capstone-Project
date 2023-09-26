@@ -148,7 +148,7 @@ const QuizPopup2 = () => {
                           <FormLabel>
                             {question.Question ? question.Question : question}
                           </FormLabel>
-                          <RadioGroup>
+                          <RadioGroup name={`:r${index}:`}>
                             {info2.Quiz.Options
                               ? info2.Quiz.Options[index]
                                 ? info2.Quiz.Options[index].map((option) => {
@@ -214,7 +214,7 @@ const QuizPopup2 = () => {
                             ? info2.Quiz.Question1.Question
                             : info2.Quiz.Question1}
                         </FormLabel>
-                        <RadioGroup>
+                        <RadioGroup name=":r0:">
                           {info2.Quiz.Question1.Options
                             ? info2.Quiz.Question1.Options.map(
                                 (option, index2) => (
@@ -250,7 +250,7 @@ const QuizPopup2 = () => {
                             ? info2.Quiz.Question2.Question
                             : info2.Quiz.Question2}
                         </FormLabel>
-                        <RadioGroup>
+                        <RadioGroup name=":r1:">
                           {info2.Quiz.Question2.Options
                             ? info2.Quiz.Question2.Options.map(
                                 (option, index2) => (
@@ -286,7 +286,7 @@ const QuizPopup2 = () => {
                             ? info2.Quiz.Question3.Question
                             : info2.Quiz.Question3}
                         </FormLabel>
-                        <RadioGroup>
+                        <RadioGroup name=":r2:">
                           {info2.Quiz.Question3.Options
                             ? info2.Quiz.Question3.Options.map(
                                 (option, index2) => (
