@@ -15,7 +15,7 @@ import QuizPopup3 from './QuizPopup3';
 import Tier1Info from './Tier1Info.js';
 import Tier2Info from './Tier2Info.js';
 import Tier3Info from './Tier3Info.js';
-import { setPosition, setInfo1, setInfo2, setInfo3 } from '../store/store';
+import { setPosition, setInfo1, setInfo2, setInfo3, setTier1Comp, setTier2Comp, } from '../store/store';
 
 const GameBoard = () => {
   const dispatch = useDispatch();
@@ -53,7 +53,9 @@ const GameBoard = () => {
   };
 
   useEffect(() => {
-    setPosition(0);
+    dispatch(setPosition(0));
+    dispatch(setTier1Comp(false));
+    dispatch(setTier2Comp(false));
     if (language === '') {
       navigate('/');
     } else {
