@@ -5,8 +5,10 @@ Narrowing down what we wanted to do for our MVP was a bit of a challenge, but we
 
 ## Screenshots
 Landing Page
+![image](https://github.com/2303-Capstone-Group-4/Language-Knight/assets/10659805/15c854a7-5ddc-4104-bd70-2e58c3c74aac)
 
 Gameboard
+![image](https://github.com/2303-Capstone-Group-4/Language-Knight/assets/10659805/f67991d3-e38a-4c29-b30c-ba337e58288a)
 
 ## Built With
 <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg"  title="React" alt="React" width="40" height="40"/>&nbsp;
