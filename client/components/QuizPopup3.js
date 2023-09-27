@@ -30,7 +30,6 @@ const QuizPopup3 = () => {
       answers.question3 !== ''
     ) {
       if (info3.Quiz?.Answers[0]) {
-        console.log('test');
         if (
           answers.question1 === info3.Quiz.Answers[0] &&
           answers.question2 === info3.Quiz.Answers[1] &&
