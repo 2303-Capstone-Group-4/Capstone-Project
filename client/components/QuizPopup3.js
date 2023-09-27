@@ -38,7 +38,7 @@ const QuizPopup3 = () => {
         ) {
           alert('Correct, you have completed your journey!');
           handleClose();
-          navigate('/');
+          navigate('/Victory');
         } else {
           alert('Incorrect, you must try again!');
         }
@@ -51,7 +51,7 @@ const QuizPopup3 = () => {
           ) {
             alert('Correct, you have completed your journey!');
             handleClose();
-            navigate('/');
+            navigate('/Victory');
           } else {
             alert('Incorrect, you must try again!');
           }
@@ -63,7 +63,7 @@ const QuizPopup3 = () => {
           ) {
             alert('Correct, you have completed your journey!');
             handleClose();
-            navigate('/');
+            navigate('/Victory');
           } else {
             alert('Incorrect, you must try again!');
           }
@@ -76,7 +76,7 @@ const QuizPopup3 = () => {
         ) {
           alert('Correct, you have completed your journey!');
           handleClose();
-          navigate('/');
+          navigate('/Victory');
         } else {
           alert('Incorrect, you must try again!');
         }

@@ -11,7 +11,13 @@ const VictoryPage = () => {
 
   return (
     <div id="home-page">
-      <motion.h2 id="victory">VICTORY!!!</motion.h2>
+      <motion.h2
+        animate={{ scale: [0.7, 1.0, 0.7] }}
+        transition={{ repeat: Infinity, duration: 1.2 }}
+        id="victory"
+      >
+        VICTORY!!!
+      </motion.h2>
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
