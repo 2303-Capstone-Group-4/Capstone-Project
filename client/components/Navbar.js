@@ -15,7 +15,13 @@ const Navbar = () => (
         <Typography
           variant="h6"
           component="div"
-          sx={{ fontWeight: 'bold', fontSize: 'x-large' }}
+          sx={{
+            fontWeight: 'bold',
+            fontSize: 'x-large',
+            flexGrow: 1,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+          }}
         >
           Language Knight
         </Typography>
@@ -23,7 +29,11 @@ const Navbar = () => (
         <Typography
           variant="h6"
           component="div"
-          sx={{ flexGrow: 1, display: 'flex', justifyContent: 'space-evenly' }}
+          sx={{
+            flexGrow: 1,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+          }}
         >
           <Link
             to="/"
