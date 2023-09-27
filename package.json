@@ -48,5 +48,8 @@
     "redux-thunk": "^2.4.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
+  },
+  "engines": {
+    "node": ">=14 <15"
   }
 }
